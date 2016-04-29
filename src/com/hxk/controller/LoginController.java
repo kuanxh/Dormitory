@@ -1,17 +1,11 @@
 package com.hxk.controller;
 
-
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import com.hxk.model.AdminStu;
 import com.hxk.model.Users;
-import com.hxk.service.impl.AdminServiceImpl;
 import com.hxk.service.impl.LoginServiceImpl;
 
 @Controller
@@ -20,8 +14,6 @@ public class LoginController {
 	@Autowired
 	private LoginServiceImpl loginSerImpl;
 	
-	@Autowired
-	private AdminServiceImpl adminSerImpl;
 	
 	@RequestMapping("/")
 	public String showLogin(){
@@ -29,10 +21,10 @@ public class LoginController {
 	}
 	
 	
-	//login后跳转不同的页面 并传递用户参数（有缺陷直接在login中传递用户，在adminstu中来获取数据）
+	//login鍚庤烦杞笉鍚岀殑椤甸潰 骞朵紶閫掔敤鎴峰弬鏁帮紙鏈夌己闄风洿鎺ュ湪login涓紶閫掔敤鎴凤紝鍦╝dminstu涓潵鑾峰彇鏁版嵁锛�
 	
 	
-	//使用cookie来存储用户的用户名 
+	//浣跨敤cookie鏉ュ瓨鍌ㄧ敤鎴风殑鐢ㄦ埛鍚� 
 	@RequestMapping("/login")
 	public String loginSer(String name,String pass, HttpServletResponse res){
 		//System.out.println(name+""+pass);
@@ -57,14 +49,14 @@ public class LoginController {
 		}else if(user.getType().equals("adm")){
 			System.out.println("dsad");
 			
-			//根据卡号来查询学生
+			//鏍规嵁鍗″彿鏉ユ煡璇㈠鐢�
 //			AdminStu adminStu = adminSerImpl.getStudent(user.getName());
 //			System.out.println(adminStu);
 //			model.addObject("as", adminStu);
 //			model.setViewName("forward:adminProfile");
 //			return model;
 			
-			//有缺陷（多用户！）
+			//鏈夌己闄凤紙澶氱敤鎴凤紒锛�
 			
 			return "redirect:adminProfile";
 		}else{

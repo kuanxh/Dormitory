@@ -298,7 +298,7 @@
 							</a></li>
 
 							<li><a href="form-wizard.html"> <i
-									class="icon-double-angle-right"></i> 发布物品遗失
+									class="icon-double-angle-right"></i> 我的遗失信息
 							</a></li>
 						</ul></li>
 				</ul>

@@ -252,7 +252,7 @@
 
 					
 						<li>
-							<a href="calendar">
+							<a href="adminCalendar">
 								<i class="icon-calendar"></i>
 								<span class="menu-text">
 									日历
@@ -262,16 +262,16 @@
 								</span>
 							</a>
 						</li>
-					<li><a href="#" class="dropdown-toggle"> <i
+					<li><a href="adminStuInfoGL" class="dropdown-toggle"> <i
 							class="icon-desktop"></i> <span class="menu-text"> 学生信息管理
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="admin/stuInfoGL"> <i
+							<li><a href="adminStuInfoGL"> <i
 									class="icon-double-angle-right"></i> 学生信息管理
 							</a></li>
 
-							<li><a href="stuInfoLR"> <i
+							<li><a href="adminStuInfoLR"> <i
 									class="icon-double-angle-right"></i> 学生信息录入
 							</a></li>
 						
@@ -285,7 +285,7 @@
 							<li><a href="tables.html"> <i
 									class="icon-double-angle-right"></i> 宿舍信息管理
 							</a></li>
-
+							
 							<li><a href="jqgrid.html"> <i
 									class="icon-double-angle-right"></i> 宿舍信息添加
 							</a></li>
@@ -324,12 +324,8 @@
 							class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="form-elements.html"> <i
+							<li><a href="adminDorBX"> <i
 									class="icon-double-angle-right"></i> 宿舍报修信息
-							</a></li>
-
-							<li><a href="form-wizard.html"> <i
-									class="icon-double-angle-right"></i> 物品遗失信息
 							</a></li>
 						</ul></li>
 				</ul>

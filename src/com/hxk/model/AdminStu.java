@@ -1,38 +1,30 @@
 package com.hxk.model;
 
-//管理员管理的student(和本身学生的累不一样)
+//管理员管理的student(和本身学生的类不一样)
 public class AdminStu {
 
 	public AdminStu() {
 		super();
 	}
 	
-	private int id;
-	@Override
-	public String toString() {
-		return "AdminStu [id=" + id + ", name=" + name + ", dorNum=" + dorNum + ", phoneNum=" + phoneNum
-				+ ", isInSchool=" + isInSchool + ", note=" + note + "]";
-	}
-
-	private String name;
-	private String idNum;
-	public String getIdNum() {
-		return idNum;
-	}
-	public void setIdNum(String idNum) {
-		this.idNum = idNum;
-	}
-
-	private String dorNum;
-	private String phoneNum;
-	private String isInSchool;
-	private String note;
+	private String id;
+	private String year; //入学年份
+	private String name; //姓名
+	private String address;
+	private String number;
+	private String phone;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
 	}
 	public String getName() {
 		return name;
@@ -40,28 +32,28 @@ public class AdminStu {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDorNum() {
-		return dorNum;
+	public String getAddress() {
+		return address;
 	}
-	public void setDorNum(String dorNum) {
-		this.dorNum = dorNum;
+	public void setAdderss(String adderss) {
+		this.address = adderss;
 	}
-	public String getPhoneNum() {
-		return phoneNum;
+	public String getNumber() {
+		return number;
 	}
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
+	public void setNumber(String number) {
+		this.number = number;
 	}
-	public String getIsInSchool() {
-		return isInSchool;
+	public String getPhone() {
+		return phone;
 	}
-	public void setIsInSchool(String isInSchool) {
-		this.isInSchool = isInSchool;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getNote() {
-		return note;
-	}
-	public void setNote(String note) {
-		this.note = note;
+	
+	@Override
+	public String toString() {
+		return "AdminStu [id=" + id + ", year=" + year + ", name=" + name + ", adderss=" + address + ", number="
+				+ number + ", phone=" + phone + "]";
 	}
 }

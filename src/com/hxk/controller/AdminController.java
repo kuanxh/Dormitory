@@ -1,15 +1,21 @@
 package com.hxk.controller;
 
+import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hxk.model.AdminStu;
 import com.hxk.service.AdminService;
@@ -42,7 +48,7 @@ public class AdminController {
 	//学生信息管理
 	@RequestMapping("/adminStuInfoGL")
 	public String showStuInGL(){
-		return "stuInfoGL";
+		return "adminStuInfoGL";
 	}
 	
 	//信息设置
@@ -77,8 +83,21 @@ public class AdminController {
 	//学生信息录入
 	@RequestMapping("/adminStuInfoLR")
 	public String showStuInfoLR(){
-		return "stuInfoLR";
+		return "adminStuInfoLR";
 	}	
+	
+	//宿舍信息录入
+	@RequestMapping("/adminDorInfoTJ")
+	public String showDorInfoTJ(){
+		return "stuInfoLR";
+	}
+	
+	//宿舍信息管理
+	@RequestMapping("/adminDorInfoGL")
+	public String showDorInfoGL(){
+		return "stuInfoLR";
+	}
+	
 	
 	//404
 	@RequestMapping("/error404")
@@ -106,5 +125,75 @@ public class AdminController {
 		//List<AdminStu> stu = adminService.getAllStudent();
 		//modelMap.addAttribute("stu", stu);
 		return "visitorInfoGL";
+	}
+	
+	
+	//文件上传、
+	@RequestMapping(value = "/importAdminStu", method = RequestMethod.POST)
+	public String importAdminStuInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
+		/*String temp = request.getSession().getServletContext()
+				.getRealPath(File.separator)
+				+ "temp"; // 临时目录
+		File tempFile = new File(temp);
+		if (!tempFile.exists()) {
+			tempFile.mkdirs();
+		}
+		DiskFileUpload fu = new DiskFileUpload();
+		fu.setSizeMax(10 * 1024 * 1024); // 设置允许用户上传文件大小,单位:位
+		fu.setSizeThreshold(4096); // 设置最多只允许在内存中存储的数据,单位:位
+		fu.setRepositoryPath(temp); // 设置一旦文件大小超过getSizeThreshold()的值时数据存放在硬盘的目录
+		// 开始读取上传信息
+		// int index = 0;
+		List fileItems = null;
+		try {
+			fileItems = fu.parseRequest(request);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Iterator iter = fileItems.iterator(); // 依次处理每个上传的文件
+		FileItem fileItem = null;
+		while (iter.hasNext()) {
+			FileItem item = (FileItem) iter.next();// 忽略其他不是文件域的所有表单信息
+			if (!item.isFormField()) {
+				fileItem = item;
+				// index++;
+			}
+		}
+		
+		if (fileItem == null)
+			return null;
+			*/
+		if (file == null){
+			System.out.println("file");
+			return null;
+		}
+		System.out.println("file");
+		
+		//logger.info(file.getOriginalFilename());
+
+		String name = file.getOriginalFilename();// 获取上传文件名,包括路径
+		System.out.println(name);
+		//name = name.substring(name.lastIndexOf("\\") + 1);// 从全路径中提取文件名
+		long size = file.getSize();
+		if ((name == null || name.equals("")) && size == 0)
+			return null;
+		InputStream in = file.getInputStream();
+		System.out.println(in.toString());
+		adminService.importAdminStuXls(in);
+
+		// 改为人工刷新缓存KeyContextManager.clearPeriodCacheData(new
+		// PeriodDimensions());// 清理所有缓存
+		//int count = BrandMobileInfos.size();
+		//String strAlertMsg ="";
+		
+		//strAlertMsg= "成功更新" + count + "条！";
+		
+		//logger.info(strAlertMsg);
+		//request.setAttribute("brandPeriodSortList", BrandMobileInfos);
+		//request.setAttribute("strAlertMsg", strAlertMsg);
+	
+		//request.getSession().setAttribute("msg",strAlertMsg);
+		return "adminStuInfoGL";
+		//return null;
 	}
 }

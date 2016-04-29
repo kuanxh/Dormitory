@@ -35,14 +35,14 @@
 	
 		jQuery(grid_selector).jqGrid({
 			//direction: "rtl",
-			url : 'http://localhost:8080/Dormitory/info/adminStu',
+			//url : 'http://localhost:8080/Dormitory/admin/info/adminStu',
         	datatype : "json",
         	
-//			data: grid_data,
-//			datatype: "local",
+			data: grid_data,
+			datatype: "local",
 			
 			height: 250,
-			colNames:[' ', 'ID','入学年份','姓名', '宿舍号', '手机号','家庭住址'],
+			colNames:[' ', 'ID','入学年份','姓名', 'Stock', 'Ship via','Notes'],
 			colModel:[
 				{name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
 					formatter:'actions', 
@@ -53,12 +53,12 @@
 						//editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
 					}
 				},
-				{name:'id',index:'id', width:60, sorttype:"String", editable: true},
-				{name:'year',index:'year',width:90, editable:true, sorttype:"date",unformat: pickDate},
+				{name:'id',index:'id', width:60, sorttype:"int", editable: true},
+				{name:'sdate',index:'sdate',width:90, editable:true, sorttype:"date",unformat: pickDate},
 				{name:'name',index:'name', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'number',index:'number', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'phone',index:'phone', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'address',index:'address', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
+				{name:'stock',index:'stock', width:70, editable: true,edittype:"checkbox",editoptions: {value:"Yes:No"},unformat: aceSwitch},
+				{name:'ship',index:'ship', width:90, editable: true,edittype:"select",editoptions:{value:"FE:FedEx;IN:InTime;TN:TNT;AR:ARAMEX"}},
+				{name:'note',index:'note', width:150, sortable:false,editable: true,edittype:"textarea", editoptions:{rows:"2",cols:"10"}} 
 			], 
 	
 			viewrecords : true,

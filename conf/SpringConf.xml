@@ -10,6 +10,8 @@
            http://www.springframework.org/schema/context    
            http://www.springframework.org/schema/context/spring-context-3.2.xsd">  
     
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>  
+    
     <!-- 自动扫描注解的bean -->  
     <context:component-scan base-package="com.hxk.service.impl" />
     

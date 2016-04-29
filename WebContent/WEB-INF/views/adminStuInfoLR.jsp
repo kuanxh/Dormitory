@@ -69,28 +69,19 @@
 	</div>
 
 	<div id="dropzone">
-		<form action="//dummy.html" class="dropzone">
-			<div class="fallback">
-				<input name="file" type="file" multiple="" />
-			</div>
+		<form name="excelImportForm" action="importAdminStu" method="post" enctype="multipart/form-data" id="excelImportForm">  
+		<input type="file" name="filename"  accept="xls"/>
+		<input type="submit" value="导入Excel"/>
 		</form>
 	</div>
 	<!-- PAGE CONTENT ENDS -->
 	
-	
-	
-	
 	<!-- footer部分 -->
 	<%@ include file="adminFooter.jsp"%>
 	
-	
-	
-	
-	
-	
-	
-	
 		<!-- basic scripts -->
+
+
 		<!--[if !IE]> -->
 
 		<script type="text/javascript">
@@ -121,6 +112,20 @@
 		<script src="assets/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
-		<script src="assets/js1/dropzone.js"></script>
+
+		<script type="text/javascript">
+			jQuery(function($){
+			
+			try {
+			  $(".dropzone").dropzone({
+				dictDefaultMessage :
+				''
+			  });
+			} catch(e) {
+			  alert('Dropzone.js does not support older browsers!');
+			}
+			
+			});
+		</script>
 </body>
 </html>
