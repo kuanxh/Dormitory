@@ -10,9 +10,9 @@ public class AdminStu {
 	private String id;
 	private String year; //入学年份
 	private String name; //姓名
-	private String address;
-	private String number;
-	private String phone;
+	private String address;//家庭住址
+	private String number;//宿舍号
+	private String phone;//手机号
 	
 	public String getId() {
 		return id;
@@ -35,7 +35,7 @@ public class AdminStu {
 	public String getAddress() {
 		return address;
 	}
-	public void setAdderss(String adderss) {
+	public void setAddress(String adderss) {
 		this.address = adderss;
 	}
 	public String getNumber() {
