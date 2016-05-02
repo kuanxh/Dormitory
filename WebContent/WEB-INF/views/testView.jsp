@@ -9,5 +9,6 @@
 <body>
 	${stu}
 	${adminStu}
+	做个试验
 </body>
 </html>
