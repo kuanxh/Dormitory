@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hxk.mapper.AdminStuMapper">   
     
-    <!--  查询所有记录  -->
+    <!--  查询所有学生记录  -->
     <select id="selectAllStudent" resultType="com.hxk.model.AdminStu">  
        select * from adminStu
     </select>
@@ -13,9 +13,35 @@
        select * from adminstu where idNum = #{studentId}    
     </select>
     
-    <!--  插入多条记录      -->
+    <!--  插入单条学生记录      -->
     <insert id="insertStudent">
-        
+        insert into adminstu (id,year,name,address,number,phone) value (#{id},#{year},#{name},#{address},#{number},#{phone})
     </insert>
     
+    <!--  插入多条记录      -->
+    <insert id="insertStudents" parameterType="com.hxk.model.AdminStu">
+        insert into 
+    </insert>
+    
+    <!-- 批量插入数据 -->
+    <insert id="addTrainRecordBatch" useGeneratedKeys="true" parameterType="java.util.List">  
+    <selectKey resultType="long" keyProperty="id" order="AFTER">  
+        SELECT  
+        LAST_INSERT_ID()  
+    </selectKey>  
+    insert into t_train_record (add_time,emp_id,activity_id,flag)   
+    values  
+    <foreach collection="list" item="item" index="index" separator="," >  
+        (#{item.addTime},#{item.empId},#{item.activityId},#{item.flag})  
+    </foreach>  
+</insert> 
+
+	<!--  查询所有宿舍记录  -->
+    <select id="selectAllDor" resultType="com.hxk.model.AdminDor">  
+       select * from admindor
+    </select>
+    <!--  插入单条宿舍记录      -->
+    <insert id="insertDor">
+        insert into admindor (id,count,name,number,phone,admin) value (#{id},#{count},#{name},#{number},#{phone},#{admin})
+    </insert>
 </mapper>

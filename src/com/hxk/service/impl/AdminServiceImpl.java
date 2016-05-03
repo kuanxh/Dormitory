@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hxk.mapper.AdminStuMapper;
+import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 import com.hxk.service.AdminService;
 
@@ -29,23 +30,32 @@ public class AdminServiceImpl implements AdminService{
 		List<AdminStu> stu = adminStuMapper.selectAllStudent();
 		return stu;
 	}
-
+	
+	//管理员宿舍信息管理
+	public List<AdminDor> getAllDor() {
+		// TODO Auto-generated method stub
+		List<AdminDor> dor = adminStuMapper.selectAllDor();
+		return dor;
+	}
+	
 	@Override
 	public AdminStu getStudent(String id) {
 		return adminStuMapper.selectStudentById(id);
 	}
 	
+	
+	
 	@Override
-	//文件上传
+	//学生文件上传
 	public void importAdminStuXls(InputStream in) throws IOException{  
         List<AdminStu> adminStus  = readAdminStuXls(in); 
         for (AdminStu adminStu : adminStus) {  
         	//与数据库交互插入数据
-        	//adminStuMapper.updateByConditions(adminStu);  
+        	adminStuMapper.insertStudent(adminStu);  
         }  
     }
 	
-	//读取XLS文件
+	//学生读取XLS文件
 	private List<AdminStu> readAdminStuXls(InputStream is)
 			throws IOException {
 		System.out.println("readAdminStuXls");
@@ -66,15 +76,19 @@ public class AdminServiceImpl implements AdminService{
 					HSSFCell adminStuHSSFCell = hssfRow.getCell(i);
 					if (i == 0) {
 						adminStu.setId(adminStuHSSFCell.getStringCellValue());
+						//adminStu.setId(Double.toString(adminStuHSSFCell.getNumericCellValue()));
 					} else if (i == 1) {
+						//adminStu.setYear(Double.toString(adminStuHSSFCell.getNumericCellValue()));
 						adminStu.setYear(adminStuHSSFCell.getStringCellValue());
 					} else if (i == 2) {
 						adminStu.setName(adminStuHSSFCell.getStringCellValue());
 					} else if (i == 3) {
 						adminStu.setAddress(adminStuHSSFCell.getStringCellValue());
 					} else if (i == 4) {
+						//adminStu.setNumber(Double.toString(adminStuHSSFCell.getNumericCellValue()));
 						adminStu.setNumber(adminStuHSSFCell.getStringCellValue());
 					} else if (i == 5) {
+						//adminStu.setPhone(Double.toString(adminStuHSSFCell.getNumericCellValue()));
 						adminStu.setPhone(adminStuHSSFCell.getStringCellValue());
 					}
 				}
@@ -83,5 +97,53 @@ public class AdminServiceImpl implements AdminService{
 		}
 		System.out.println(adminStus);
 		return adminStus;
+	}
+	
+	@Override
+	//学生文件上传
+	public void importAdminDorXls(InputStream in) throws IOException{  
+        List<AdminDor> adminDors  = readAdminDorXls(in); 
+        for (AdminDor adminDor : adminDors) {  
+        	//与数据库交互插入数据
+        	adminStuMapper.insertDor(adminDor);  
+        }  
+    }
+	
+	//学生读取XLS文件
+	private List<AdminDor> readAdminDorXls(InputStream is)
+			throws IOException {
+		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
+		List<AdminDor> adminDors = new ArrayList<AdminDor>();
+		AdminDor adminDor;
+		// 循环工作表Sheet
+		for (int numSheet = 0; numSheet < hssfWorkbook.getNumberOfSheets(); numSheet++) {
+			HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(numSheet);
+			if (hssfSheet == null) {
+				continue;
+			}
+			// 循环行Row
+			for (int rowNum = 0; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
+				adminDor = new AdminDor();
+				HSSFRow hssfRow = hssfSheet.getRow(rowNum);
+				for (int i = 0; i < hssfRow.getLastCellNum(); i++) {
+					HSSFCell adminDorHSSFCell = hssfRow.getCell(i);
+					if (i == 0) {
+						adminDor.setId(adminDorHSSFCell.getStringCellValue());
+					} else if (i == 1) {
+						adminDor.setCount(adminDorHSSFCell.getStringCellValue());
+					} else if (i == 2) {
+						adminDor.setName(adminDorHSSFCell.getStringCellValue());
+					} else if (i == 3) {
+						adminDor.setNumber(adminDorHSSFCell.getStringCellValue());
+					} else if (i == 4) {
+						adminDor.setPhone(adminDorHSSFCell.getStringCellValue());
+					} else if (i == 5) {
+						adminDor.setAdmin(adminDorHSSFCell.getStringCellValue());
+					}
+				}
+				adminDors.add(adminDor);
+			}
+		}
+		return adminDors;
 	}
 }

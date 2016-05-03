@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 import com.hxk.service.AdminService;
 
@@ -89,15 +90,20 @@ public class AdminController {
 	//宿舍信息录入
 	@RequestMapping("/adminDorInfoTJ")
 	public String showDorInfoTJ(){
-		return "stuInfoLR";
+		return "adminDorInfoTJ";
 	}
 	
 	//宿舍信息管理
 	@RequestMapping("/adminDorInfoGL")
 	public String showDorInfoGL(){
-		return "stuInfoLR";
+		return "adminDorInfoGL";
 	}
 	
+	//游客信息管理
+	@RequestMapping("/adminVisitorInfoGL")
+	public String showVisitorInfoGL(){
+		return "adminVisitorInfoGL";
+	}
 	
 	//404
 	@RequestMapping("/error404")
@@ -111,14 +117,20 @@ public class AdminController {
 	}
 	
 	
-	
+	//管理员下的学生信息
 	@ResponseBody
 	@RequestMapping("/info/adminStu")
 	public  List<AdminStu> showStuInfo(){
 		List<AdminStu> stu = adminService.getAllStudent();
 		return stu;
 	}
-	
+	//宿舍信息
+	@ResponseBody
+	@RequestMapping("/info/adminDor")
+	public  List<AdminDor> showDorInfo(){
+		List<AdminDor> dor = adminService.getAllDor();
+		return dor;
+	}
 	
 	@RequestMapping("/info/visitorInfoGL")
 	public String showVisitorInfo(ModelMap modelMap){
@@ -128,7 +140,7 @@ public class AdminController {
 	}
 	
 	
-	//文件上传、
+	//学生文件上传、
 	@RequestMapping(value = "/importAdminStu", method = RequestMethod.POST)
 	public String importAdminStuInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		/*String temp = request.getSession().getServletContext()
@@ -167,18 +179,17 @@ public class AdminController {
 			System.out.println("file");
 			return null;
 		}
-		System.out.println("file");
+		//System.out.println("file");
 		
 		//logger.info(file.getOriginalFilename());
 
 		String name = file.getOriginalFilename();// 获取上传文件名,包括路径
-		System.out.println(name);
+		//System.out.println(name);
 		//name = name.substring(name.lastIndexOf("\\") + 1);// 从全路径中提取文件名
 		long size = file.getSize();
 		if ((name == null || name.equals("")) && size == 0)
 			return null;
 		InputStream in = file.getInputStream();
-		System.out.println(in.toString());
 		adminService.importAdminStuXls(in);
 
 		// 改为人工刷新缓存KeyContextManager.clearPeriodCacheData(new
@@ -195,5 +206,24 @@ public class AdminController {
 		//request.getSession().setAttribute("msg",strAlertMsg);
 		return "adminStuInfoGL";
 		//return null;
+	}
+	
+	//宿舍文件上传、
+	@RequestMapping(value = "/importAdminDor", method = RequestMethod.POST)
+	public String importAdminDorInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
+		if (file == null){
+			System.out.println("file");
+			return "";
+		}
+
+		String name = file.getOriginalFilename();// 获取上传文件名,包括路径
+
+		long size = file.getSize();
+		if ((name == null || name.equals("")) && size == 0)
+			return "";
+		
+		InputStream in = file.getInputStream();
+		adminService.importAdminDorXls(in);
+		return "adminDorInfoGL";
 	}
 }

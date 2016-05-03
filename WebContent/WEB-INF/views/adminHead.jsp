@@ -282,11 +282,11 @@
 							class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="tables.html"> <i
+							<li><a href="adminDorInfoGL"> <i
 									class="icon-double-angle-right"></i> 宿舍信息管理
 							</a></li>
 							
-							<li><a href="jqgrid.html"> <i
+							<li><a href="adminDorInfoTJ"> <i
 									class="icon-double-angle-right"></i> 宿舍信息添加
 							</a></li>
 						</ul></li>
@@ -296,11 +296,11 @@
 							class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="form-elements.html"> <i
+							<li><a href="adminVisitorInfoGL"> <i
 									class="icon-double-angle-right"></i> 来访信息管理
 							</a></li>
 
-							<li><a href="form-wizard.html"> <i
+							<li><a href="adminVisitorInfoDJ"> <i
 									class="icon-double-angle-right"></i> 来访信息登记
 							</a></li>
 
