@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxk.mapper.VisitorMapper">   
+    <!--  查询所有游客记录  -->
+    <select id="selectAllVisitor" resultType="com.hxk.model.Visitor">  
+       select * from adminvis
+    </select>
+    <!--  插入单条游客记录      -->
+    <insert id="insertVisitor">
+        insert into adminvis (name,sex,comment,email,phone,qq) value (#{name},#{sex},#{comment},#{email},#{phone},#{qq})
+    </insert>
+</mapper>

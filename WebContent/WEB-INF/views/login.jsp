@@ -58,8 +58,7 @@
 						<div class="space-6"></div>
 
 						<div class="position-relative">
-							<div id="login-box"
-								class="login-box visible widget-box no-border">
+							<div id="login-box" class="login-box visible widget-box no-border">
 								<div class="widget-body">
 									<div class="widget-main">
 										<h4 class="header blue lighter bigger">

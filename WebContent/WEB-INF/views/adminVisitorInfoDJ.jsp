@@ -35,6 +35,152 @@
 <body>
 	<!-- Head部分 -->
 	<%@ include file="adminHead.jsp"%>
+	
+	<!-- PAGE CONTENT BEGINS -->
+	<div class="clearfix">
+		<div class="pull-left alert alert-success no-margin">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="icon-remove"></i>
+			</button>
+
+			<i class="icon-umbrella bigger-120 blue"></i> Click on the image
+			below or on profile fields to edit them ...
+		</div>
+	</div>
+	<div class="hr dotted"></div>
+	<div>
+		<div id="user-profile-3" class="user-profile row">
+			<div class="col-sm-offset-1 col-sm-10">
+
+				<div class="space"></div>
+
+				<form class="form-horizontal" action="visitorInfoDJ" method="post">
+					<div class="tabbable">
+						<ul class="nav nav-tabs padding-16">
+							<li class="active"><a data-toggle="tab" href="#edit-basic">
+									<i class="green icon-edit bigger-125"></i> Basic Info
+							</a></li>
+
+						</ul>
+
+						<div class="tab-content profile-edit-tab-content">
+							<div id="edit-basic" class="tab-pane in active">
+								<h4 class="header blue bolder smaller">基本信息</h4>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-username">姓名</label>
+	
+									<div class="col-sm-9">
+										<input type="text" id="form-field-username" name="name" value="姓名" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-date">日期</label>
+
+									<div class="col-sm-9">
+										<div class="input-medium">
+											<div class="input-group">
+												<input class="input-medium date-picker" id="form-field-date" name="date"
+													type="text" data-date-format="dd-mm-yyyy"
+													placeholder="dd-mm-yyyy" /> <span
+													class="input-group-addon"> <i class="icon-calendar"></i>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="space-4"></div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right">性别</label>
+
+									<div class="col-sm-9">
+										<label class="inline"> <input name="sex" type="radio" class="ace" value="male"/> <span class="lbl"> 男</span> </label> 
+										&nbsp; &nbsp; &nbsp; 
+										<label class="inline"> <input name="sex" type="radio" class="ace" value="female"/> <span class="lbl"> 女</span>
+										</label>
+									</div>
+								</div>
+
+								<div class="space-4"></div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-comment">备注</label>
+
+									<div class="col-sm-9">
+									
+										<textarea name="comment" id="form-field-comment"></textarea>
+									</div>
+								</div>
+
+								<div class="space"></div>
+								<h4 class="header blue bolder smaller">Contact</h4>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-email">邮箱</label>
+
+									<div class="col-sm-9">
+										<span class="input-icon input-icon-right"> <input
+											type="email" id="form-field-email" name=" email" value="hhhh@163.com" />
+											<i class="icon-envelope"></i>
+										</span>
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-username">电话</label>
+	
+									<div class="col-sm-9">
+										<input type="text" id="form-field-username" name="phone" value="电话" />
+									</div>
+								</div>
+
+								<div class="space"></div>
+								<h4 class="header blue bolder smaller">Social</h4>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-QQ">QQ</label>
+
+									<div class="col-sm-9">
+										<span class="input-icon"> <input type="text" name="qq" /> 
+										</span>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+						&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 
+							<input class="btn btn-info" type="submit"></input>
+
+							&nbsp; &nbsp;&nbsp; 
+							<button class="btn" type="reset">
+								<i class="icon-undo bigger-110"></i> 重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /span -->
+		</div>
+		<!-- /user-profile -->
+	</div>
+	<!-- PAGE CONTENT ENDS -->
+	
+	
 	<!-- footer部分 -->
 	<%@ include file="adminFooter.jsp"%> 
 	<!-- basic scripts -->

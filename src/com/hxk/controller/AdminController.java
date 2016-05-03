@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
+import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
 
 @Controller
@@ -105,6 +106,12 @@ public class AdminController {
 		return "adminVisitorInfoGL";
 	}
 	
+	//游客信息登记
+	@RequestMapping("/adminVisitorInfoDJ")
+	public String showVisitorInfoDJ(){
+		return "adminVisitorInfoDJ";
+	}
+	
 	//404
 	@RequestMapping("/error404")
 	public String show404(){
@@ -124,6 +131,8 @@ public class AdminController {
 		List<AdminStu> stu = adminService.getAllStudent();
 		return stu;
 	}
+	
+	
 	//宿舍信息
 	@ResponseBody
 	@RequestMapping("/info/adminDor")
@@ -132,15 +141,23 @@ public class AdminController {
 		return dor;
 	}
 	
-	@RequestMapping("/info/visitorInfoGL")
-	public String showVisitorInfo(ModelMap modelMap){
-		//List<AdminStu> stu = adminService.getAllStudent();
-		//modelMap.addAttribute("stu", stu);
-		return "visitorInfoGL";
+	//获取所有游客的信息
+	@ResponseBody
+	@RequestMapping("/info/adminVisitor")
+	public List<Visitor> showVisitorInfo(){
+		List<Visitor> vis = adminService.getAllVisitor();
+		return vis;
 	}
 	
+	//游客信息处理
+	@RequestMapping(value= "/visitorInfoDJ", method = RequestMethod.POST)
+	public String VisitorInfoDJ(Visitor visitor){
+		//System.out.println(visitor);
+		adminService.insertVis(visitor);
+		return "adminVisitorInfoGL";
+	}
 	
-	//学生文件上传、
+	//学生文件上传
 	@RequestMapping(value = "/importAdminStu", method = RequestMethod.POST)
 	public String importAdminStuInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		/*String temp = request.getSession().getServletContext()
@@ -215,13 +232,10 @@ public class AdminController {
 			System.out.println("file");
 			return "";
 		}
-
 		String name = file.getOriginalFilename();// 获取上传文件名,包括路径
-
 		long size = file.getSize();
 		if ((name == null || name.equals("")) && size == 0)
 			return "";
-		
 		InputStream in = file.getInputStream();
 		adminService.importAdminDorXls(in);
 		return "adminDorInfoGL";
