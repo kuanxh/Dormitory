@@ -10,6 +10,6 @@
     
     <!--  插入单条卫生记录      -->
     <insert id="insertSanitation">
-        insert into sanitation (id,count,name,number,phone,admin) value (#{id},#{count},#{name},#{number},#{phone},#{admin})
+        insert into sanitation (number,bed,floor,chair,toilet,loo,comment) value (#{number},#{bed},#{floor},#{chair},#{toilet},#{loo},#{comment})
     </insert> 
 </mapper>

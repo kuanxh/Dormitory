@@ -69,7 +69,7 @@
 	</div>
 
 	<div id="dropzone">
-		<form name="excelImportForm" action="importAdminDor" method="post" enctype="multipart/form-data" id="excelImportForm">  
+		<form name="excelImportForm" action="importAdminSan" method="post" enctype="multipart/form-data" id="excelImportForm">  
 		<input type="file" name="filename"  accept="xls"/>
 		<input type="submit" value="导入Excel"/>
 		</form>

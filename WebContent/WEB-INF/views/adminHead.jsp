@@ -310,11 +310,11 @@
 							class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="form-elements.html"> <i
+							<li><a href="adminSanitationGL"> <i
 									class="icon-double-angle-right"></i> 检查信息管理
 							</a></li>
 
-							<li><a href="form-wizard.html"> <i
+							<li><a href="adminSanitationLR"> <i
 									class="icon-double-angle-right"></i> 检查信息添加
 							</a></li>
 						</ul></li>

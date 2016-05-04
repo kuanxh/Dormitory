@@ -7,14 +7,14 @@
 	
 		jQuery(grid_selector).jqGrid({
 			//direction: "rtl",
-			url : 'http://localhost:8080/Dormitory/info/adminDor',
+			url : 'http://localhost:8080/Dormitory/info/adminSan',
         	datatype : "json",
         	
 //			data: grid_data,
 //			datatype: "local",
 			
 			height: 250,
-			colNames:[' ', 'ID','人数','姓名', '宿舍号', '手机号','楼层管理员'],
+			colNames:[' ', 'ID','宿舍号','床被', '地面', '桌椅','厕所','洗手间','备注'],
 			colModel:[
 				{name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
 					formatter:'actions', 
@@ -26,11 +26,13 @@
 					}
 				},
 				{name:'id',index:'id', width:60, sorttype:"String", editable: true},
-				{name:'count',index:'count',width:90, editable:true, sorttype:"date",unformat: pickDate},
-				{name:'name',index:'name', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'number',index:'number', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'phone',index:'phone', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'admin',index:'admin', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
+				{name:'number',index:'number',width:90, editable:true},
+				{name:'bed',index:'bed',width:90, editable:true},
+				{name:'floor',index:'floor',width:90, editable:true},
+				{name:'table',index:'table', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'toilet',index:'toilet', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'loo',index:'loo', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'comment',index:'comment', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
 			], 
 	
 			viewrecords : true,

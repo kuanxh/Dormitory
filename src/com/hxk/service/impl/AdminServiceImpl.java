@@ -12,9 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hxk.mapper.AdminDorMapper;
 import com.hxk.mapper.AdminStuMapper;
+import com.hxk.mapper.SanitationMapper;
 import com.hxk.mapper.VisitorMapper;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
+import com.hxk.model.Sanitation;
 import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
 
@@ -30,6 +32,9 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Autowired
 	private AdminDorMapper adminDorMapper;
+	
+	@Autowired
+	private SanitationMapper sanitationMapper;
 	
 	//管理员学生信息管理
 	public List<AdminStu> getAllStudent() {
@@ -63,6 +68,20 @@ public class AdminServiceImpl implements AdminService{
 		visitorMapper.insertVisitor(visitor);
 	}
 	
+	
+	
+	//获取所有卫生信息
+	@Override
+	public List<Sanitation> getAllSan() {
+		List<Sanitation> sanitations = sanitationMapper.selectAllSanitation();
+		return sanitations;
+	}
+	
+	//卫生文件信息的插入
+	@Override
+	public void insertSan(InputStream in) throws IOException {
+		importAdminSanitationXls(in);
+	}
 	
 	
 	//学生文件上传
@@ -164,6 +183,56 @@ public class AdminServiceImpl implements AdminService{
 		}
 		return adminDors;
 	}
+	
+	
+	//卫生文件上传
+	public void importAdminSanitationXls(InputStream in) throws IOException{  
+        List<Sanitation> sanitations  = readAdminSanitationXls(in); 
+        for (Sanitation sanitation : sanitations) {  
+        	//与数据库交互插入数据
+        	sanitationMapper.insertSanitation(sanitation);  
+        }  
+    }
+	
+	//卫生读取XLS文件
+	private List<Sanitation> readAdminSanitationXls(InputStream is) throws IOException {
+		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
+		List<Sanitation>sanitations = new ArrayList<Sanitation>();
+		Sanitation sanitation;
+		// 循环工作表Sheet
+		for (int numSheet = 0; numSheet < hssfWorkbook.getNumberOfSheets(); numSheet++) {
+			HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(numSheet);
+			if (hssfSheet == null) {
+				continue;
+			}
+			// 循环行Row
+			for (int rowNum = 0; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
+				sanitation = new Sanitation();
+				HSSFRow hssfRow = hssfSheet.getRow(rowNum);
+				for (int i = 0; i < hssfRow.getLastCellNum(); i++) {
+					HSSFCell sanitationHSSFCell = hssfRow.getCell(i);
+					if (i == 0) {
+						sanitation.setNumber(sanitationHSSFCell.getStringCellValue());
+					} else if (i == 1) {
+						sanitation.setBed(sanitationHSSFCell.getStringCellValue());
+					} else if (i == 2) {
+						sanitation.setFloor(sanitationHSSFCell.getStringCellValue());
+					} else if (i == 3) {
+						sanitation.setChair(sanitationHSSFCell.getStringCellValue());
+					} else if (i == 4) {
+						sanitation.setToilet(sanitationHSSFCell.getStringCellValue());
+					} else if (i == 5) {
+						sanitation.setLoo(sanitationHSSFCell.getStringCellValue());
+					} else if (i == 6) {
+						sanitation.setComment(sanitationHSSFCell.getStringCellValue());
+					}
+				}
+				sanitations.add(sanitation);
+			}
+		}
+		return sanitations;
+	}
+	
 
 	
 }

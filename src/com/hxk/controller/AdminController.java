@@ -2,23 +2,19 @@ package com.hxk.controller;
 
 import java.io.InputStream;
 import java.util.List;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
+import com.hxk.model.Sanitation;
 import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
 
@@ -100,6 +96,20 @@ public class AdminController {
 		return "adminDorInfoGL";
 	}
 	
+	
+	//卫生信息录入
+	@RequestMapping("/adminSanitationLR")
+	public String showSanitationInfoLR(){
+		return "adminSanitationLR";
+	}
+	
+	//卫生信息管理
+	@RequestMapping("/adminSanitationGL")
+	public String showSanitationInfoGL(){
+		return "adminSanitationGL";
+	}
+		
+	
 	//游客信息管理
 	@RequestMapping("/adminVisitorInfoGL")
 	public String showVisitorInfoGL(){
@@ -156,6 +166,16 @@ public class AdminController {
 		adminService.insertVis(visitor);
 		return "adminVisitorInfoGL";
 	}
+	
+	
+	//卫生信息
+	@ResponseBody
+	@RequestMapping("/info/adminSan")
+	public  List<Sanitation> showSanInfo(){
+		List<Sanitation> san = adminService.getAllSan();
+		return san;
+	}
+	
 	
 	//学生文件上传
 	@RequestMapping(value = "/importAdminStu", method = RequestMethod.POST)
@@ -239,5 +259,21 @@ public class AdminController {
 		InputStream in = file.getInputStream();
 		adminService.importAdminDorXls(in);
 		return "adminDorInfoGL";
+	}
+	
+	//卫生文件上传、
+	@RequestMapping(value = "/importAdminSan", method = RequestMethod.POST)
+	public String importAdminSanInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
+		if (file == null){
+			System.out.println("file");
+			return "";
+		}
+		String name = file.getOriginalFilename();// 获取上传文件名,包括路径
+		long size = file.getSize();
+		if ((name == null || name.equals("")) && size == 0)
+			return "";
+		InputStream in = file.getInputStream();
+		adminService.insertSan(in);
+		return "adminSanitationGL";
 	}
 }
