@@ -8,7 +8,7 @@
 	
 		jQuery(grid_selector).jqGrid({
 			//direction: "rtl",
-			url : 'http://localhost:8080/Dormitory/info/adminDor',
+			url : 'http://localhost:8080/Dormitory/info/stuRepairInfo',
         	datatype : "json",
         	
 //			data: grid_data,

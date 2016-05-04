@@ -246,12 +246,12 @@
 				<!-- #sidebar-shortcuts -->
 
 				<ul class="nav nav-list">
-					<li class="active"><a href="student/profile"> <i
+					<li class="active"><a href="stuProfile"> <i
 							class="icon-dashboard"></i> <span class="menu-text">用户信息</span>
 					</a></li>
 
 					<li>
-							<a href="student/calendar">
+							<a href="stuCalendar">
 								<i class="icon-calendar"></i>
 								<span class="menu-text">
 									日历
@@ -262,13 +262,11 @@
 							</a>
 						</li>
 
-					<li><a href="#" class="dropdown-toggle"> <i
-							class="icon-desktop"></i> <span class="menu-text"> 我的报修管理
+					<li> <i class="icon-desktop"></i> <span class="menu-text"> 我的报修管理
 						</span> <b class="arrow icon-angle-down"></b>
-					</a>
+					
 						<ul class="submenu">
-							<li><a href="elements.html"> <i
-									class="icon-double-angle-right"></i> 我的报修信息
+							<li><a href="stuRepairInfo"> <i class="icon-double-angle-right"></i> 我的报修信息
 							</a></li>
 
 							<li><a href="stuRepair"> <i

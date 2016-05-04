@@ -14,6 +14,6 @@ public interface DorRepairMapper {
 	public List<DorRepair> selectAllDorRepair();
 	
 	//获取学生的报修信息
-	public List<DorRepair> selectStuDorRepair();
+	public List<DorRepair> selectStuDorRepair(String name);
 	
 }

@@ -14,6 +14,6 @@
     
     <!-- 根据学生姓名获取学生的报修信息 -->
     <select id="selectStuDorRepair" resultType="com.hxk.model.DorRepair">  
-       select * from dorrepair
+       select * from dorrepair where name = #{0}
     </select>
 </mapper>
