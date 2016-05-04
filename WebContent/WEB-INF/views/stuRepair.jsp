@@ -1,18 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
-<!-- 这段代码的意思是获取当前项目的路径，如：http://localhost:8080/项目名称。 -->
-<%    
-	String path = request.getContextPath();    
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";    
-%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户信息设置</title>
-	<!-- basic styles -->
+<title>在线报修</title>
+<!-- basic styles -->
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
 	<!--[if IE 7]>
@@ -23,6 +16,12 @@
 	<link rel="stylesheet" href="assets/css/jquery.gritter.css" />
 	<link rel="stylesheet" href="assets/css/select2.css" />
 	<link rel="stylesheet" href="assets/css/bootstrap-editable.css" />
+	<link rel="stylesheet" href="assets/css/chosen.css" />
+	<link rel="stylesheet" href="assets/css/datepicker.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
+	<link rel="stylesheet" href="assets/css/daterangepicker.css" />
+	<link rel="stylesheet" href="assets/css/colorpicker.css" />
+	
 	<!-- ace styles -->
 	<link rel="stylesheet" href="assets/css/ace.min.css" />
 	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
@@ -39,11 +38,9 @@
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-
 <body>
 	<!-- Head部分 -->
-	<%@ include file="stuHead.jsp"%> 
-	
+	<%@ include file="stuHead.jsp"%>
 	
 	<!-- PAGE CONTENT BEGINS -->
 	<div class="clearfix">
@@ -63,70 +60,44 @@
 
 				<div class="space"></div>
 
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="visitorInfoDJ" method="post">
 					<div class="tabbable">
 						<ul class="nav nav-tabs padding-16">
 							<li class="active"><a data-toggle="tab" href="#edit-basic">
-									<i class="green icon-edit bigger-125"></i> Basic Info
+									<i class="green icon-edit bigger-125"></i> 信息填写
 							</a></li>
 
-							<li><a data-toggle="tab" href="#edit-settings"> <i
-									class="purple icon-cog bigger-125"></i> Settings
-							</a></li>
-
-							<li><a data-toggle="tab" href="#edit-password"> <i
-									class="blue icon-key bigger-125"></i> Password
-							</a></li>
 						</ul>
 
 						<div class="tab-content profile-edit-tab-content">
 							<div id="edit-basic" class="tab-pane in active">
-								<h4 class="header blue bolder smaller">General</h4>
+								<h4 class="header blue bolder smaller">基本信息</h4>
 
-								<div class="row">
-									<div class="col-xs-12 col-sm-4">
-										<input type="file" />
-									</div>
-
-									<div class="vspace-xs"></div>
-
-									<div class="col-xs-12 col-sm-8">
-										<div class="form-group">
-											<label class="col-sm-4 control-label no-padding-right"
-												for="form-field-username">Username</label>
-
-											<div class="col-sm-8">
-												<input class="col-xs-12 col-sm-10" type="text"
-													id="form-field-username" placeholder="Username"
-													value="alexdoe" />
-											</div>
-										</div>
-
-										<div class="space-4"></div>
-
-										<div class="form-group">
-											<label class="col-sm-4 control-label no-padding-right"
-												for="form-field-first">Name</label>
-
-											<div class="col-sm-8">
-												<input class="input-small" type="text" id="form-field-first"
-													placeholder="First Name" value="Alex" /> <input
-													class="input-small" type="text" id="form-field-last"
-													placeholder="Last Name" value="Doe" />
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<hr />
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-date">Birth Date</label>
+										for="form-field-username">姓名</label>
+	
+									<div class="col-sm-9">
+										<input type="text" id="form-field-username" name="name" value="李四" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-username">宿舍</label>
+	
+									<div class="col-sm-9">
+										<input type="text" id="form-field-username" name="name" value="42618" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-date">日期</label>
 
 									<div class="col-sm-9">
 										<div class="input-medium">
 											<div class="input-group">
-												<input class="input-medium date-picker" id="form-field-date"
+												<input class="input-medium date-picker" id="form-field-date" name="date"
 													type="text" data-date-format="dd-mm-yyyy"
 													placeholder="dd-mm-yyyy" /> <span
 													class="input-group-addon"> <i class="icon-calendar"></i>
@@ -138,186 +109,41 @@
 
 								<div class="space-4"></div>
 
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right">Gender</label>
-
-									<div class="col-sm-9">
-										<label class="inline"> <input name="form-field-radio"
-											type="radio" class="ace" /> <span class="lbl"> Male</span>
-										</label> &nbsp; &nbsp; &nbsp; <label class="inline"> <input
-											name="form-field-radio" type="radio" class="ace" /> <span
-											class="lbl"> Female</span>
-										</label>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-comment">Comment</label>
+										for="form-field-comment">备注</label>
 
 									<div class="col-sm-9">
-										<textarea id="form-field-comment"></textarea>
+									
+										<textarea name="comment" id="form-field-comment"></textarea>
 									</div>
 								</div>
-
-								<div class="space"></div>
-								<h4 class="header blue bolder smaller">Contact</h4>
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-email">Email</label>
-
+										for="form-field-username">电话</label>
+	
 									<div class="col-sm-9">
-										<span class="input-icon input-icon-right"> <input
-											type="email" id="form-field-email" value="alexdoe@gmail.com" />
-											<i class="icon-envelope"></i>
-										</span>
+										<input type="text" id="form-field-username" name="phone" value="电话" />
 									</div>
 								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-website">Website</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon input-icon-right"> <input
-											type="url" id="form-field-website"
-											value="http://www.alexdoe.com/" /> <i class="icon-globe"></i>
-										</span>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-phone">Phone</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon input-icon-right"> <input
-											class="input-medium input-mask-phone" type="text"
-											id="form-field-phone" /> <i
-											class="icon-phone icon-flip-horizontal"></i>
-										</span>
-									</div>
-								</div>
-
-								<div class="space"></div>
-								<h4 class="header blue bolder smaller">Social</h4>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-facebook">Facebook</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon"> <input type="text"
-											value="facebook_alexdoe" id="form-field-facebook" /> <i
-											class="icon-facebook blue"></i>
-										</span>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-twitter">Twitter</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon"> <input type="text"
-											value="twitter_alexdoe" id="form-field-twitter" /> <i
-											class="icon-twitter light-blue"></i>
-										</span>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-gplus">Google+</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon"> <input type="text"
-											value="google_alexdoe" id="form-field-gplus" /> <i
-											class="icon-google-plus red"></i>
-										</span>
-									</div>
-								</div>
+								
+								
+							
 							</div>
 
-							<div id="edit-settings" class="tab-pane">
-								<div class="space-10"></div>
-
-								<div>
-									<label class="inline"> <input type="checkbox"
-										name="form-field-checkbox" class="ace" /> <span class="lbl">
-											Make my profile public</span>
-									</label>
-								</div>
-
-								<div class="space-8"></div>
-
-								<div>
-									<label class="inline"> <input type="checkbox"
-										name="form-field-checkbox" class="ace" /> <span class="lbl">
-											Email me new updates</span>
-									</label>
-								</div>
-
-								<div class="space-8"></div>
-
-								<div>
-									<label class="inline"> <input type="checkbox"
-										name="form-field-checkbox" class="ace" /> <span class="lbl">
-											Keep a history of my conversations</span>
-									</label> <label class="inline"> <span class="space-2 block"></span>
-
-										for <input type="text" class="input-mini" maxlength="3" />
-										days
-									</label>
-								</div>
-							</div>
-
-							<div id="edit-password" class="tab-pane">
-								<div class="space-10"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-pass1">New Password</label>
-
-									<div class="col-sm-9">
-										<input type="password" id="form-field-pass1" />
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-pass2">Confirm Password</label>
-
-									<div class="col-sm-9">
-										<input type="password" id="form-field-pass2" />
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 
 					<div class="clearfix form-actions">
 						<div class="col-md-offset-3 col-md-9">
-							<button class="btn btn-info" type="button">
-								<i class="icon-ok bigger-110"></i> Save
-							</button>
+						&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 
+							<input class="btn btn-info" type="submit"></input>
 
-							&nbsp; &nbsp;
+							&nbsp; &nbsp;&nbsp; 
 							<button class="btn" type="reset">
-								<i class="icon-undo bigger-110"></i> Reset
+								<i class="icon-undo bigger-110"></i> 重置
 							</button>
 						</div>
 					</div>
@@ -328,6 +154,7 @@
 		<!-- /user-profile -->
 	</div>
 	<!-- PAGE CONTENT ENDS -->
+	
 	
 	<!-- footer部分 -->
 	<%@ include file="stuFooter.jsp"%> 
@@ -365,6 +192,8 @@
 	<script src="assets/js/x-editable/bootstrap-editable.min.js"></script>
 	<script src="assets/js/x-editable/ace-editable.min.js"></script>
 	<script src="assets/js/jquery.maskedinput.min.js"></script>
+	<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		
 	<!-- ace scripts -->
 	<script src="assets/js/ace-elements.min.js"></script>
 	<script src="assets/js/ace.min.js"></script>

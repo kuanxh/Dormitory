@@ -25,8 +25,12 @@ public class StudentController {
 	StudentService stuSer;
 	
 	@RequestMapping("/stuProfile")
-	public String showView(){
+	public String showStuProfile(){
 		return "stuProfile";
+	}
+	@RequestMapping("/stuCalendar")
+	public String showStuCalendar(){
+		return "stuCalendar";
 	}
 	
 	@RequestMapping("/stuSanitation")

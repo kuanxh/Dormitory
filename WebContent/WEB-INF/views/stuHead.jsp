@@ -262,11 +262,13 @@
 							</a>
 						</li>
 
-					<li> <i class="icon-desktop"></i> <span class="menu-text"> 我的报修管理
+					<li><a href="#" class="dropdown-toggle"> <i
+							class="icon-desktop"></i> <span class="menu-text"> 我的报修管理
 						</span> <b class="arrow icon-angle-down"></b>
-					
+					</a>
 						<ul class="submenu">
-							<li><a href="stuRepairInfo"> <i class="icon-double-angle-right"></i> 我的报修信息
+							<li><a href="stuRepairInfo"> <i
+									class="icon-double-angle-right"></i> 我的报修信息
 							</a></li>
 
 							<li><a href="stuRepair"> <i
