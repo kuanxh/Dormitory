@@ -324,7 +324,7 @@
 							class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="adminDorBX"> <i
+							<li><a href="adminRepairInfo"> <i
 									class="icon-double-angle-right"></i> 宿舍报修信息
 							</a></li>
 						</ul></li>

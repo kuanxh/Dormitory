@@ -22,5 +22,8 @@ public class StudentController {
 	public String showSanitation(){
 		return "stuSanitation";
 	}
-	
+	@RequestMapping("/stuRepair")
+	public String showRepair(){
+		return "stuRepair";
+	}
 }

@@ -271,7 +271,7 @@
 									class="icon-double-angle-right"></i> 我的报修信息
 							</a></li>
 
-							<li><a href="buttons.html"> <i
+							<li><a href="stuRepair"> <i
 									class="icon-double-angle-right"></i> 我要在线报修
 							</a></li>
 						</ul></li>

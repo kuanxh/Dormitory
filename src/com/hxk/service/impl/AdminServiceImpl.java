@@ -12,10 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hxk.mapper.AdminDorMapper;
 import com.hxk.mapper.AdminStuMapper;
+import com.hxk.mapper.DorRepairMapper;
 import com.hxk.mapper.SanitationMapper;
 import com.hxk.mapper.VisitorMapper;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
+import com.hxk.model.DorRepair;
 import com.hxk.model.Sanitation;
 import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
@@ -35,6 +37,9 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Autowired
 	private SanitationMapper sanitationMapper;
+	
+	@Autowired
+	private DorRepairMapper dorRepairMapper;
 	
 	//管理员学生信息管理
 	public List<AdminStu> getAllStudent() {
@@ -82,6 +87,19 @@ public class AdminServiceImpl implements AdminService{
 	public void insertSan(InputStream in) throws IOException {
 		importAdminSanitationXls(in);
 	}
+	
+	
+	//获取所有的报修信息
+	@Override
+	public List<DorRepair> getAllDorRepair() {
+		List<DorRepair> dorR = dorRepairMapper.selectAllDorRepair();
+		return dorR;
+	}
+	
+	
+	
+	
+	
 	
 	
 	//学生文件上传
@@ -232,6 +250,8 @@ public class AdminServiceImpl implements AdminService{
 		}
 		return sanitations;
 	}
+
+	
 	
 
 	

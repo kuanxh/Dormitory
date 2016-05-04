@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
+import com.hxk.model.DorRepair;
 import com.hxk.model.Sanitation;
 import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
@@ -121,6 +122,23 @@ public class AdminController {
 	public String showVisitorInfoDJ(){
 		return "adminVisitorInfoDJ";
 	}
+	
+	//报修信息管理
+	@RequestMapping("/adminRepairInfo")
+	public String showRepairInfo(){
+		return "adminRepairInfo";
+	}
+	
+	
+	//报修信息
+	@ResponseBody
+	@RequestMapping("/info/adminDorRepair")
+	public List<DorRepair> getRepairInfo(){
+		List<DorRepair> dorRs = adminService.getAllDorRepair();
+		return dorRs;
+	}
+	
+	
 	
 	//404
 	@RequestMapping("/error404")
