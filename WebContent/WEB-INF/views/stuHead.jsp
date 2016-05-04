@@ -281,7 +281,7 @@
 							class="arrow icon-angle-down"></b>
 					</a>
 					<ul class="submenu">
-							<li><a href="form-elements.html"> <i
+							<li><a href="stuSanitation"> <i
 									class="icon-double-angle-right"></i> 卫生检查信息
 							</a></li>
 

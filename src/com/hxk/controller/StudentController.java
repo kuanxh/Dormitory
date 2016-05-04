@@ -1,9 +1,7 @@
 package com.hxk.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 @Controller
 //@RequestMapping("/student")
@@ -20,5 +18,9 @@ public class StudentController {
 		return "stuProfile";
 	}
 	
+	@RequestMapping("/stuSanitation")
+	public String showSanitation(){
+		return "stuSanitation";
+	}
 	
 }
