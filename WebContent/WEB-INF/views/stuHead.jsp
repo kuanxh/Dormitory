@@ -178,21 +178,21 @@
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
 							src="assets/avatars/user.jpg" alt="Jason's Photo" /> <span
-							class="user-info"> <small>Welcome,</small> Jason
+							class="user-info"> <small>Welcome,</small> ${student.name}
 						</span> <i class="icon-caret-down"></i>
 					</a>
 
 						<ul
 							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="student/infoSetting"> <i class="icon-cog"></i> Settings
+							<li><a href="stuSetting"> <i class="icon-cog"></i> 修改信息
 							</a></li>
 
-							<li><a href="student/profile"> <i class="icon-user"></i> Profile
+							<li><a href="stuProfile"> <i class="icon-user"></i> 个人信息
 							</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="login"> <i class="icon-off"></i> Logout
+							<li><a href="login"> <i class="icon-off"></i> 注销
 							</a></li>
 						</ul></li>
 				</ul>

@@ -5,8 +5,6 @@ public class Users {
 	public Users() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Users [name=" + name + ", password=" + password + ", type=" + type + "]";

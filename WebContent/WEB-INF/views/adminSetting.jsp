@@ -60,22 +60,16 @@
 	<div>
 		<div id="user-profile-3" class="user-profile row">
 			<div class="col-sm-offset-1 col-sm-10">
-
 				<div class="space"></div>
-
 				<form class="form-horizontal">
 					<div class="tabbable">
 						<ul class="nav nav-tabs padding-16">
 							<li class="active"><a data-toggle="tab" href="#edit-basic">
-									<i class="green icon-edit bigger-125"></i> Basic Info
-							</a></li>
-
-							<li><a data-toggle="tab" href="#edit-settings"> <i
-									class="purple icon-cog bigger-125"></i> Settings
+									<i class="green icon-edit bigger-125"></i> 基本信息
 							</a></li>
 
 							<li><a data-toggle="tab" href="#edit-password"> <i
-									class="blue icon-key bigger-125"></i> Password
+									class="blue icon-key bigger-125"></i> 密码
 							</a></li>
 						</ul>
 
@@ -83,45 +77,31 @@
 							<div id="edit-basic" class="tab-pane in active">
 								<h4 class="header blue bolder smaller">General</h4>
 
-								<div class="row">
-									<div class="col-xs-12 col-sm-4">
+								<div class="form-group">
+									<label class="col-sm-2 control-label no-padding-right"></label>
+									<div class="no-padding-right col-xs-12 col-sm-4">
 										<input type="file" />
 									</div>
-
-									<div class="vspace-xs"></div>
-
-									<div class="col-xs-12 col-sm-8">
-										<div class="form-group">
-											<label class="col-sm-4 control-label no-padding-right"
-												for="form-field-username">Username</label>
-
-											<div class="col-sm-8">
-												<input class="col-xs-12 col-sm-10" type="text"
-													id="form-field-username" placeholder="Username"
-													value="alexdoe" />
-											</div>
-										</div>
-
-										<div class="space-4"></div>
-
-										<div class="form-group">
-											<label class="col-sm-4 control-label no-padding-right"
-												for="form-field-first">Name</label>
-
-											<div class="col-sm-8">
-												<input class="input-small" type="text" id="form-field-first"
-													placeholder="First Name" value="Alex" /> <input
-													class="input-small" type="text" id="form-field-last"
-													placeholder="Last Name" value="Doe" />
-											</div>
-										</div>
-									</div>
 								</div>
+
 
 								<hr />
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-date">Birth Date</label>
+										for="form-field-username">姓名</label>
+
+									<div class="col-sm-8">
+										<input class="col-xs-12 col-sm-4" type="text"
+											id="form-field-username" placeholder="Username"
+											value="alexdoe" />
+									</div>
+								</div>
+
+								<div class="space-4"></div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-date">生日</label>
 
 									<div class="col-sm-9">
 										<div class="input-medium">
@@ -139,14 +119,14 @@
 								<div class="space-4"></div>
 
 								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right">Gender</label>
+									<label class="col-sm-3 control-label no-padding-right">性别</label>
 
 									<div class="col-sm-9">
 										<label class="inline"> <input name="form-field-radio"
-											type="radio" class="ace" /> <span class="lbl"> Male</span>
+											type="radio" class="ace" /> <span class="lbl">男</span>
 										</label> &nbsp; &nbsp; &nbsp; <label class="inline"> <input
 											name="form-field-radio" type="radio" class="ace" /> <span
-											class="lbl"> Female</span>
+											class="lbl"> 女</span>
 										</label>
 									</div>
 								</div>
@@ -155,9 +135,9 @@
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-comment">Comment</label>
+										for="form-field-comment">个人简介</label>
 
-									<div class="col-sm-9">
+									<div class="col-sm-5">
 										<textarea id="form-field-comment"></textarea>
 									</div>
 								</div>
@@ -167,7 +147,7 @@
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-email">Email</label>
+										for="form-field-email">邮箱</label>
 
 									<div class="col-sm-9">
 										<span class="input-icon input-icon-right"> <input
@@ -181,7 +161,7 @@
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-website">Website</label>
+										for="form-field-website">个人网站</label>
 
 									<div class="col-sm-9">
 										<span class="input-icon input-icon-right"> <input
@@ -195,11 +175,11 @@
 
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-phone">Phone</label>
+										for="form-field-phone">手机</label>
 
 									<div class="col-sm-9">
 										<span class="input-icon input-icon-right"> <input
-											class="input-medium input-mask-phone" type="text"
+											 type="text"
 											id="form-field-phone" /> <i
 											class="icon-phone icon-flip-horizontal"></i>
 										</span>
@@ -234,54 +214,8 @@
 										</span>
 									</div>
 								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-gplus">Google+</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon"> <input type="text"
-											value="google_alexdoe" id="form-field-gplus" /> <i
-											class="icon-google-plus red"></i>
-										</span>
-									</div>
-								</div>
 							</div>
 
-							<div id="edit-settings" class="tab-pane">
-								<div class="space-10"></div>
-
-								<div>
-									<label class="inline"> <input type="checkbox"
-										name="form-field-checkbox" class="ace" /> <span class="lbl">
-											Make my profile public</span>
-									</label>
-								</div>
-
-								<div class="space-8"></div>
-
-								<div>
-									<label class="inline"> <input type="checkbox"
-										name="form-field-checkbox" class="ace" /> <span class="lbl">
-											Email me new updates</span>
-									</label>
-								</div>
-
-								<div class="space-8"></div>
-
-								<div>
-									<label class="inline"> <input type="checkbox"
-										name="form-field-checkbox" class="ace" /> <span class="lbl">
-											Keep a history of my conversations</span>
-									</label> <label class="inline"> <span class="space-2 block"></span>
-
-										for <input type="text" class="input-mini" maxlength="3" />
-										days
-									</label>
-								</div>
-							</div>
 
 							<div id="edit-password" class="tab-pane">
 								<div class="space-10"></div>

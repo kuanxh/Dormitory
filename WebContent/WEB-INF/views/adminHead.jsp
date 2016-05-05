@@ -184,15 +184,15 @@
 
 						<ul
 							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="admin/infoSetting"> <i class="icon-cog"></i> Settings
+							<li><a href="admin/infoSetting"> <i class="icon-cog"></i> 个人设置
 							</a></li>
 
-							<li><a href="admin/profile"> <i class="icon-user"></i> Profile
+							<li><a href="admin/profile"> <i class="icon-user"></i> 个人信息
 							</a></li>
 
 							<li class="divider"></li>
 
-							<li><a href="login"> <i class="icon-off"></i> Logout
+							<li><a href="login"> <i class="icon-off"></i> 注销
 							</a></li>
 						</ul></li>
 				</ul>

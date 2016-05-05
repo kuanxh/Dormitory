@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hxk.model.DorRepair;
 import com.hxk.model.Lose;
+import com.hxk.model.Student;
 import com.hxk.service.StudentService;
 
 @Controller
@@ -28,9 +30,18 @@ public class StudentController {
 	
 	//学生信息
 	@RequestMapping("/stuProfile")
-	public String showStuProfile(){
+	public String showStuProfile(ModelMap modelMap){
+		Student stu = stuSer.getStudent();
+		modelMap.addAttribute("student", stu);
 		return "stuProfile";
 	}
+	
+	//修改个人信息
+	@RequestMapping("/stuSetting")
+	public String setStuProfile(){
+		return "stuSetting";
+	}
+	
 	//日历
 	@RequestMapping("/stuCalendar")
 	public String showStuCalendar(){
@@ -99,6 +110,7 @@ public class StudentController {
 		stuSer.insertLose(lose);
 		return "stuMyLose";
 	}
+	
 	
 	//获取所有的遗失信息
 	@ResponseBody
