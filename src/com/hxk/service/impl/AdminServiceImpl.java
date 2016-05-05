@@ -11,10 +11,12 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hxk.mapper.AdminDorMapper;
+import com.hxk.mapper.AdminMapper;
 import com.hxk.mapper.AdminStuMapper;
 import com.hxk.mapper.DorRepairMapper;
 import com.hxk.mapper.SanitationMapper;
 import com.hxk.mapper.VisitorMapper;
+import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
@@ -40,6 +42,9 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Autowired
 	private DorRepairMapper dorRepairMapper;
+	
+	@Autowired
+	private AdminMapper adminMapper;
 	
 	//管理员学生信息管理
 	public List<AdminStu> getAllStudent() {
@@ -96,8 +101,11 @@ public class AdminServiceImpl implements AdminService{
 		return dorR;
 	}
 	
-	
-	
+	//获取管理员信息
+	@Override
+	public Admin getAdmin(String admNumeber) {
+		return adminMapper.selectAdmin(admNumeber);
+	}
 	
 	
 	
@@ -250,6 +258,8 @@ public class AdminServiceImpl implements AdminService{
 		}
 		return sanitations;
 	}
+
+	
 
 	
 	

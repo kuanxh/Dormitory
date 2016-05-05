@@ -178,7 +178,7 @@
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
 							src="assets/avatars/user.jpg" alt="Jason's Photo" /> <span
-							class="user-info"> <small>Welcome,</small> Jason
+							class="user-info"> <small>Welcome,</small> ${admin.name }
 						</span> <i class="icon-caret-down"></i>
 					</a>
 

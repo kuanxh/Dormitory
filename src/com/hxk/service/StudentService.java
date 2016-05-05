@@ -17,5 +17,5 @@ public interface StudentService {
 	public void insertLose(Lose lose);
 	
 	//获取个人信息
-	public Student getStudent();
+	public Student getStudent(String num);
 }

@@ -59,7 +59,6 @@
 
 	<div class="hr dotted"></div>
 
-
 	<div>
 	<div id="user-profile-2" class="user-profile">
 		<div class="tabbable">
@@ -95,7 +94,7 @@
 
 						<div class="col-xs-12 col-sm-9">
 							<h4 class="blue">
-								<span class="middle">Alex M. Doe</span>
+								<span class="middle">${admin.name }</span>
 							</h4>
 
 							<div class="profile-user-info">
@@ -103,7 +102,7 @@
 									<div class="profile-info-name"> 姓名 </div>
 
 									<div class="profile-info-value">
-										<span>alexdoe</span>
+										<span>${admin.name }</span>
 									</div>
 								</div>
 
@@ -111,7 +110,7 @@
 									<div class="profile-info-name"> 管理楼层 </div>
 									<div class="profile-info-value">
 										<i class="icon-map-marker light-orange bigger-110"></i>
-										<span>Netherlands</span>
+										<span>${admin.gllc }</span>
 									</div>
 								</div>
 
@@ -119,7 +118,7 @@
 									<div class="profile-info-name"> 年龄 </div>
 
 									<div class="profile-info-value">
-										<span>38</span>
+										<span>${admin.age }</span>
 									</div>
 								</div>
 
@@ -127,7 +126,7 @@
 									<div class="profile-info-name"> 生日 </div>
 
 									<div class="profile-info-value">
-										<span>20/06/2010</span>
+										<span>${admin.birth }</span>
 									</div>
 								</div>
 
@@ -135,14 +134,14 @@
 									<div class="profile-info-name"> 手机号 </div>
 
 									<div class="profile-info-value">
-										<span>3 hours ago</span>
+										<span>${admin.phone }</span>
 									</div>
 								</div>
 								<div class="profile-info-row">
 									<div class="profile-info-name"> 工号 </div>
 
 									<div class="profile-info-value">
-										<span>3 hours ago</span>
+										<span>${admin.admnumber }</span>
 									</div>
 								</div>
 							</div>

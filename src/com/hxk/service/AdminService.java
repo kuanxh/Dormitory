@@ -3,6 +3,8 @@ package com.hxk.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+
+import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
@@ -29,4 +31,7 @@ public interface AdminService {
 	
 	//获取所有报修的信息
 	public List<DorRepair> getAllDorRepair();
+	
+	//获取所有报修的信息
+	public Admin getAdmin(String admNumber);
 }

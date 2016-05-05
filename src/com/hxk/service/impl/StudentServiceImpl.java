@@ -55,8 +55,8 @@ public class StudentServiceImpl implements StudentService{
 
 	//获取个人信息
 	@Override
-	public Student getStudent() {
-		return studentMapper.selectStudent();
+	public Student getStudent(String num) {
+		return studentMapper.selectStudent(num);
 	}
 		
 }

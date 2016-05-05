@@ -73,7 +73,7 @@
 											<fieldset>
 												<label class="block clearfix"> <span
 													class="block input-icon input-icon-right"> 
-													<input type="text" name="name" pattern="[1-9]{8}" title="请输入8位卡号" autofocus="autofocus" class="form-control" placeholder="Username" />
+													<input type="text" name="name"  title="请输入8位卡号" autofocus="autofocus" class="form-control" placeholder="Username" />
 														<i class="icon-user"></i>
 												</span>
 												</label> 

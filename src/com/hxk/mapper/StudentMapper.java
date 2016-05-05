@@ -4,6 +4,6 @@ import com.hxk.model.Student;
 public interface StudentMapper {
 	
 	//获取个人信息
-	public Student selectStudent();
+	public Student selectStudent(String stuNumber);
 	
 }

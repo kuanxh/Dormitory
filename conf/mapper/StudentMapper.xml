@@ -5,7 +5,7 @@
    
 	<!--  查询个人信息  -->
     <select id="selectStudent" resultType="com.hxk.model.Student">  
-       select * from student
+       select * from student where stunumber = #{0}
     </select>
     
 </mapper>

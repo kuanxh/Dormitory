@@ -2,6 +2,9 @@ package com.hxk.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,9 +33,19 @@ public class StudentController {
 	
 	//学生信息
 	@RequestMapping("/stuProfile")
-	public String showStuProfile(ModelMap modelMap){
-		Student stu = stuSer.getStudent();
-		modelMap.addAttribute("student", stu);
+	public String showStuProfile(ModelMap modelMap,HttpServletRequest req){
+		
+		Cookie[] cookies = req.getCookies();
+		if(null != cookies){
+			for(int i = 0; i < cookies.length; i++){
+				Cookie cookie = cookies[i];
+				if(cookie.getName().equals("idNum")){
+					String idNum = cookie.getValue();
+					Student stu = stuSer.getStudent(idNum);
+					modelMap.addAttribute("student", stu);
+				}
+			}
+		}
 		return "stuProfile";
 	}
 	
