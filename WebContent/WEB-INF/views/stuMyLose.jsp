@@ -90,7 +90,7 @@
 	<script src="assets/js/ace-elements.min.js"></script>
 	<script src="assets/js/ace.min.js"></script>
 	<!-- inline scripts related to this page -->
-	<script src="assets/js1/stuDorRepair.js"></script>
+	<script src="assets/js1/stuMyLose.js"></script>
 </body>
 	
 </html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxk.mapper.LoseMapper">   
+   
+	<!--  获取所有遗失信息 -->
+    <select id="selectAllLose" resultType="com.hxk.model.Lose">  
+       select * from lose
+    </select>
+    <!--  插入单条遗失信息      -->
+    <insert id="insertLose">
+        insert into lose (number,name,academy,grade,phone,date,comment) value (#{number},#{name},#{academy},#{grade},#{phone},#{date},#{comment})
+    </insert> 
+    
+    <!-- 根据学生姓名获取遗失信息 -->
+    <select id="selectMyLose" resultType="com.hxk.model.Lose">  
+       select * from lose where name = #{0}
+    </select>
+</mapper>

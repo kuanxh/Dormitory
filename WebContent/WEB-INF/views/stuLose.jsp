@@ -60,11 +60,11 @@
 
 				<div class="space"></div>
 
-				<form class="form-horizontal" action="repairInfo" method="post">
+				<form class="form-horizontal" action="LoseInfo" method="post">
 					<div class="tabbable">
 						<ul class="nav nav-tabs padding-16">
 							<li class="active"><a data-toggle="tab" href="#edit-basic">
-									<i class="green icon-edit bigger-125"></i> 信息填写
+									<i class="green icon-edit bigger-125"></i> 遗失信息填写
 							</a></li>
 
 						</ul>
@@ -72,7 +72,20 @@
 						<div class="tab-content profile-edit-tab-content">
 							<div id="edit-basic" class="tab-pane in active">
 								<h4 class="header blue bolder smaller">基本信息</h4>
-
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-username">学院</label>
+									<div class="col-sm-9">
+										<input class="col-sm-4" type="text" id="form-field-username" name="academy" value="计算机与软件工程学院" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label no-padding-right"
+										for="form-field-username">班级</label>
+									<div class="col-sm-9">
+										<input class="col-sm-4" type="text" id="form-field-username" name="grade" value="软件1121" />
+									</div>
+								</div>
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
 										for="form-field-username">姓名</label>
@@ -119,17 +132,6 @@
 	
 									<div class="col-sm-9">
 										<input class="col-sm-4" type="text" id="form-field-username" name="phone" value="电话" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right" for="form-field-select-1">报修</label>
-									<div class="col-sm-9">
-									<select name="type" class="col-sm-4" id="form-field-select-1">
-										<option value="">&nbsp;</option>
-										<option value="门锁已坏">门锁已坏</option>
-										<option value="寝室大灯坏一个">寝室大灯坏一个</option>
-										<option value="水龙头坏掉一个">水龙头坏掉一个</option>
-									</select>
 									</div>
 								</div>
 							</div>

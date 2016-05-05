@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>我的报修信息</title>
+<title>浏览报修信息</title>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -90,7 +90,7 @@
 	<script src="assets/js/ace-elements.min.js"></script>
 	<script src="assets/js/ace.min.js"></script>
 	<!-- inline scripts related to this page -->
-	<script src="assets/js1/stuDorRepair.js"></script>
+	<script src="assets/js1/stuAllLose.js"></script>
 </body>
 	
 </html>

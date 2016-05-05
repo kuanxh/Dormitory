@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hxk.model.DorRepair;
+import com.hxk.model.Lose;
 import com.hxk.service.StudentService;
 
 @Controller
@@ -69,13 +70,17 @@ public class StudentController {
 		return "stuRepairInfo";
 	}
 	
+	
 	//所有的遗失信息
 	@RequestMapping("/stuAllLose")
 	public String stuAllLose(){
 
 		return "stuAllLose";
 	}
+	
+	
 	//我的遗失信息
+	
 	@RequestMapping("/stuMyLose")
 	public String stuMyLose(){
 
@@ -89,9 +94,25 @@ public class StudentController {
 	
 	//遗失信息处理
 	@RequestMapping("/LoseInfo")
-	public String LoseInfo(DorRepair dorRepair){
-		System.out.println(dorRepair);
-		stuSer.insertDorRepair(dorRepair);
-		return "stuRepairInfo";
+	public String LoseInfo(Lose lose){
+		System.out.println(lose);
+		stuSer.insertLose(lose);
+		return "stuMyLose";
 	}
+	
+	//获取所有的遗失信息
+	@ResponseBody
+	@RequestMapping("/info/allLoseinfo")
+	public List<Lose> AllLoseInfo(){
+		List<Lose> loses = stuSer.getAllLose();
+		return loses;
+	}
+	
+	//获取我的遗失信息
+	@ResponseBody
+	@RequestMapping("/info/myLose")
+	public List<Lose> MyLoseInfo(){
+		return stuSer.getMyLose("黄兴宽");
+	}
+	
 }
