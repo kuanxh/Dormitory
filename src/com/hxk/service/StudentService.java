@@ -6,4 +6,5 @@ import com.hxk.model.DorRepair;
 
 public interface StudentService {
 	public List<DorRepair> getDorRepair(String name);
+	public void insertDorRepair(DorRepair dorRepair);
 }

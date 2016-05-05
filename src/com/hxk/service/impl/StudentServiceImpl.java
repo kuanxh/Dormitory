@@ -20,5 +20,11 @@ public class StudentServiceImpl implements StudentService{
 	public List<DorRepair> getDorRepair(String name) {
 		return dorRepairMapper.selectStuDorRepair(name);
 	}
+
+
+	@Override
+	public void insertDorRepair(DorRepair dorRepair) {
+		dorRepairMapper.insertDorRepair(dorRepair);
+	}
 	
 }

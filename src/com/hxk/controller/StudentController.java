@@ -24,34 +24,74 @@ public class StudentController {
 	@Autowired
 	StudentService stuSer;
 	
+	
+	//学生信息
 	@RequestMapping("/stuProfile")
 	public String showStuProfile(){
 		return "stuProfile";
 	}
+	//日历
 	@RequestMapping("/stuCalendar")
 	public String showStuCalendar(){
 		return "stuCalendar";
 	}
 	
+	//卫生信息
 	@RequestMapping("/stuSanitation")
 	public String showSanitation(){
 		return "stuSanitation";
 	}
+	
+	//报修信息填写
 	@RequestMapping("/stuRepair")
 	public String showRepair(){
 		return "stuRepair";
 	}
+	
+	//我的报修信息
 	@RequestMapping("/stuRepairInfo")
 	public String showRepairInfo(){
 		return "stuRepairInfo";
 	}
 	
+	//获取报修信息
 	@ResponseBody
 	@RequestMapping("/info/stuRepairInfo")
 	public List<DorRepair> getRepairInfo(){
 		return stuSer.getDorRepair("黄兴宽");
 	}
 	
+	//报修信息处理
+	@RequestMapping("/repairInfo")
+	public String RepairInfo(DorRepair dorRepair){
+		System.out.println(dorRepair);
+		stuSer.insertDorRepair(dorRepair);
+		return "stuRepairInfo";
+	}
 	
+	//所有的遗失信息
+	@RequestMapping("/stuAllLose")
+	public String stuAllLose(){
+
+		return "stuAllLose";
+	}
+	//我的遗失信息
+	@RequestMapping("/stuMyLose")
+	public String stuMyLose(){
+
+		return "stuMyLose";
+	}
+	//遗失信息登记
+	@RequestMapping("/stuLose")
+	public String stuLose(){
+		return "stuLose";
+	}
 	
+	//遗失信息处理
+	@RequestMapping("/LoseInfo")
+	public String LoseInfo(DorRepair dorRepair){
+		System.out.println(dorRepair);
+		stuSer.insertDorRepair(dorRepair);
+		return "stuRepairInfo";
+	}
 }

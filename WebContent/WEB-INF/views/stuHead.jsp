@@ -293,12 +293,15 @@
 							class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
-							<li><a href="form-elements.html"> <i
+							<li><a href="stuAllLose"> <i
 									class="icon-double-angle-right"></i> 浏览遗失信息
 							</a></li>
 
-							<li><a href="form-wizard.html"> <i
+							<li><a href="stuMyLose"> <i
 									class="icon-double-angle-right"></i> 我的遗失信息
+							</a></li>
+							<li><a href="stuLose"> <i
+									class="icon-double-angle-right"></i> 遗失信息登记
 							</a></li>
 						</ul></li>
 				</ul>
