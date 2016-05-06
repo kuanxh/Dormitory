@@ -33,7 +33,7 @@ public class LoginController {
 		
 		//model.addObject("User", user);
 		if(user == null){
-			return "";
+			return "/";
 		}
 		else{
 			//使用cookie来存储用户的唯一id
@@ -56,7 +56,7 @@ public class LoginController {
 			return "redirect:adminProfile";
 		}else{
 			System.out.println("4"+user.getType());
-			return "";
+			return "/";
 		}
 	}
 }

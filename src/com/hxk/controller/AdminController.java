@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
 import com.hxk.model.Sanitation;
+import com.hxk.model.TitleUrl;
 import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
 
@@ -28,6 +30,8 @@ public class AdminController {
 	
 	@Autowired(required=true)
 	private AdminService adminService;
+	
+	private TitleUrl titleUrl = new TitleUrl();
 	
 	//根据URL地址来进行页面跳转
 	/*
@@ -49,19 +53,34 @@ public class AdminController {
 	
 	//学生信息管理
 	@RequestMapping("/adminStuInfoGL")
-	public String showStuInGL(){
+	public String showStuInGL(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("学生管理");
+		titleUrl.setThree("学生信息管理");
+		titleUrl.setFour("学生信息页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminStuInfoGL";
 	}
 	
 	//信息设置
 	@RequestMapping("/adminSetting")
-	public String showInfoSetting(){
+	public String showInfoSetting(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("用户");
+		titleUrl.setThree("用户信息设置");
+		titleUrl.setFour("用户信息设置页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminSetting";
 	}
 	
 	//个人信息
 	@RequestMapping("/adminProfile")
 	public String showProfile(ModelMap modelMap ,HttpServletRequest req){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("用户");
+		titleUrl.setThree("用户信息");
+		titleUrl.setFour("用户信息页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		String idNum;
 		Cookie[] cookies = req.getCookies();
 		if(null != cookies){
@@ -78,57 +97,102 @@ public class AdminController {
 	}
 	//日历
 	@RequestMapping("/adminCalendar")
-	public String showCalendar(){
+	public String showCalendar(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("日历");
+		titleUrl.setThree("日历信息");
+		titleUrl.setFour("日历信息页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminCalendar";
 	}
 	
 	//学生信息录入
 	@RequestMapping("/adminStuInfoLR")
-	public String showStuInfoLR(){
+	public String showStuInfoLR(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("学生管理");
+		titleUrl.setThree("学生信息录入");
+		titleUrl.setFour("学生信息录入页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminStuInfoLR";
 	}	
 	
 	//宿舍信息录入
 	@RequestMapping("/adminDorInfoTJ")
-	public String showDorInfoTJ(){
+	public String showDorInfoTJ(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("宿舍管理");
+		titleUrl.setThree("宿舍信息录入");
+		titleUrl.setFour("宿舍信息录入页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminDorInfoTJ";
 	}
 	
 	//宿舍信息管理
 	@RequestMapping("/adminDorInfoGL")
-	public String showDorInfoGL(){
+	public String showDorInfoGL(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("宿舍管理");
+		titleUrl.setThree("宿舍信息管理");
+		titleUrl.setFour("宿舍信息管理页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminDorInfoGL";
 	}
 	
 	
 	//卫生信息录入
 	@RequestMapping("/adminSanitationLR")
-	public String showSanitationInfoLR(){
+	public String showSanitationInfoLR(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("卫生管理");
+		titleUrl.setThree("卫生信息录入");
+		titleUrl.setFour("卫生信息录入页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminSanitationLR";
 	}
 	
 	//卫生信息管理
 	@RequestMapping("/adminSanitationGL")
-	public String showSanitationInfoGL(){
+	public String showSanitationInfoGL(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("卫生管理");
+		titleUrl.setThree("卫生信息管理");
+		titleUrl.setFour("卫生信息管理页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminSanitationGL";
 	}
 		
 	
 	//游客信息管理
 	@RequestMapping("/adminVisitorInfoGL")
-	public String showVisitorInfoGL(){
+	public String showVisitorInfoGL(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("来访管理");
+		titleUrl.setThree("来访信息管理");
+		titleUrl.setFour("来访信息管理页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminVisitorInfoGL";
 	}
 	
 	//游客信息登记
 	@RequestMapping("/adminVisitorInfoDJ")
-	public String showVisitorInfoDJ(){
+	public String showVisitorInfoDJ(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("来访管理");
+		titleUrl.setThree("来访信息登记");
+		titleUrl.setFour("来访信息登记页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminVisitorInfoDJ";
 	}
 	
 	//报修信息管理
 	@RequestMapping("/adminRepairInfo")
-	public String showRepairInfo(){
+	public String showRepairInfo(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("报修管理");
+		titleUrl.setThree("报修信息管理");
+		titleUrl.setFour("报修信息管理页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		return "adminRepairInfo";
 	}
 	

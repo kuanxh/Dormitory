@@ -349,11 +349,11 @@
 						</script>
 
 					<ul class="breadcrumb">
-						<li><i class="icon-home home-icon"></i> <a href="#">Home</a>
+						<li><i class="icon-home home-icon"></i> <a href="#">${titleUrl.home }</a>
 						</li>
 
-						<li><a href="#">Other Pages</a></li>
-						<li class="active">Blank Page</li>
+						<li><a href="#">${titleUrl.two }</a></li>
+						<li class="active">${titleUrl.three }</li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -372,10 +372,7 @@
 				<div class="page-content">
 					<div class="page-header">
 						<h1>
-							User Profile Page <small> <i
-								class="icon-double-angle-right"></i> 3 styles with inline
-								editable feature
-							</small>
+							${titleUrl.four }
 						</h1>
 					</div>
 					<!-- /.page-header -->
