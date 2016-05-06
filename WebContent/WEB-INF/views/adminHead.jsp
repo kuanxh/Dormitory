@@ -178,16 +178,16 @@
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
 							src="assets/avatars/user.jpg" alt="Jason's Photo" /> <span
-							class="user-info"> <small>Welcome,</small> ${admin.name }
+							class="user-info"> <small>Welcome,</small> ${name }
 						</span> <i class="icon-caret-down"></i>
 					</a>
 
 						<ul
 							class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-							<li><a href="admin/infoSetting"> <i class="icon-cog"></i> 个人设置
+							<li><a href="adminSetting"> <i class="icon-cog"></i> 个人设置
 							</a></li>
 
-							<li><a href="admin/profile"> <i class="icon-user"></i> 个人信息
+							<li><a href="adminProfile"> <i class="icon-user"></i> 个人信息
 							</a></li>
 
 							<li class="divider"></li>

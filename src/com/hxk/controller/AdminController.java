@@ -7,14 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
@@ -33,6 +31,8 @@ public class AdminController {
 	
 	private TitleUrl titleUrl = new TitleUrl();
 	
+	
+	private String name = null;
 	//根据URL地址来进行页面跳转
 	/*
 	@RequestMapping("/{url}")
@@ -59,6 +59,7 @@ public class AdminController {
 		titleUrl.setThree("学生信息管理");
 		titleUrl.setFour("学生信息页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminStuInfoGL";
 	}
 	
@@ -70,6 +71,7 @@ public class AdminController {
 		titleUrl.setThree("用户信息设置");
 		titleUrl.setFour("用户信息设置页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminSetting";
 	}
 	
@@ -89,7 +91,14 @@ public class AdminController {
 				if(cookie.getName().equals("idNum")){
 					idNum = cookie.getValue();
 					Admin admin = adminService.getAdmin(idNum);
+					
+					//获取name存储到cookie中给其他页面来使用
+					name = admin.getName();
+					
+					
 					modelMap.addAttribute("admin", admin);
+					modelMap.addAttribute("name", name);
+					
 				}
 			}
 		}
@@ -103,6 +112,7 @@ public class AdminController {
 		titleUrl.setThree("日历信息");
 		titleUrl.setFour("日历信息页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminCalendar";
 	}
 	
@@ -114,6 +124,7 @@ public class AdminController {
 		titleUrl.setThree("学生信息录入");
 		titleUrl.setFour("学生信息录入页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminStuInfoLR";
 	}	
 	
@@ -125,6 +136,7 @@ public class AdminController {
 		titleUrl.setThree("宿舍信息录入");
 		titleUrl.setFour("宿舍信息录入页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminDorInfoTJ";
 	}
 	
@@ -136,6 +148,7 @@ public class AdminController {
 		titleUrl.setThree("宿舍信息管理");
 		titleUrl.setFour("宿舍信息管理页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminDorInfoGL";
 	}
 	
@@ -148,6 +161,7 @@ public class AdminController {
 		titleUrl.setThree("卫生信息录入");
 		titleUrl.setFour("卫生信息录入页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminSanitationLR";
 	}
 	
@@ -159,6 +173,7 @@ public class AdminController {
 		titleUrl.setThree("卫生信息管理");
 		titleUrl.setFour("卫生信息管理页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminSanitationGL";
 	}
 		
@@ -171,6 +186,7 @@ public class AdminController {
 		titleUrl.setThree("来访信息管理");
 		titleUrl.setFour("来访信息管理页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminVisitorInfoGL";
 	}
 	
@@ -182,6 +198,7 @@ public class AdminController {
 		titleUrl.setThree("来访信息登记");
 		titleUrl.setFour("来访信息登记页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminVisitorInfoDJ";
 	}
 	
@@ -193,6 +210,7 @@ public class AdminController {
 		titleUrl.setThree("报修信息管理");
 		titleUrl.setFour("报修信息管理页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "adminRepairInfo";
 	}
 	

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hxk.model.DorRepair;
 import com.hxk.model.Lose;
 import com.hxk.model.Student;
+import com.hxk.model.TitleUrl;
 import com.hxk.service.StudentService;
 
 @Controller
@@ -30,6 +31,9 @@ public class StudentController {
 	@Autowired
 	StudentService stuSer;
 	
+	private TitleUrl titleUrl = new TitleUrl();
+	
+	private String name = null;
 	
 	//学生信息
 	@RequestMapping("/stuProfile")
@@ -42,7 +46,12 @@ public class StudentController {
 				if(cookie.getName().equals("idNum")){
 					String idNum = cookie.getValue();
 					Student stu = stuSer.getStudent(idNum);
+					
+					name = stu.getName();
+					modelMap.addAttribute("name", name);
+					
 					modelMap.addAttribute("student", stu);
+					
 				}
 			}
 		}
@@ -51,31 +60,37 @@ public class StudentController {
 	
 	//修改个人信息
 	@RequestMapping("/stuSetting")
-	public String setStuProfile(){
+	public String setStuProfile(ModelMap modelMap){
+		
+		modelMap.addAttribute("name", name);
 		return "stuSetting";
 	}
 	
 	//日历
 	@RequestMapping("/stuCalendar")
-	public String showStuCalendar(){
+	public String showStuCalendar(ModelMap modelMap){
+		modelMap.addAttribute("name", name);
 		return "stuCalendar";
 	}
 	
 	//卫生信息
 	@RequestMapping("/stuSanitation")
-	public String showSanitation(){
+	public String showSanitation(ModelMap modelMap){
+		modelMap.addAttribute("name", name);
 		return "stuSanitation";
 	}
 	
 	//报修信息填写
 	@RequestMapping("/stuRepair")
-	public String showRepair(){
+	public String showRepair(ModelMap modelMap){
+		modelMap.addAttribute("name", name);
 		return "stuRepair";
 	}
 	
 	//我的报修信息
 	@RequestMapping("/stuRepairInfo")
-	public String showRepairInfo(){
+	public String showRepairInfo(ModelMap modelMap){
+		modelMap.addAttribute("name", name);
 		return "stuRepairInfo";
 	}
 	
@@ -89,7 +104,6 @@ public class StudentController {
 	//报修信息处理
 	@RequestMapping("/repairInfo")
 	public String RepairInfo(DorRepair dorRepair){
-		System.out.println(dorRepair);
 		stuSer.insertDorRepair(dorRepair);
 		return "stuRepairInfo";
 	}
@@ -97,8 +111,8 @@ public class StudentController {
 	
 	//所有的遗失信息
 	@RequestMapping("/stuAllLose")
-	public String stuAllLose(){
-
+	public String stuAllLose(ModelMap modelMap){
+		modelMap.addAttribute("name", name);
 		return "stuAllLose";
 	}
 	
@@ -106,20 +120,20 @@ public class StudentController {
 	//我的遗失信息
 	
 	@RequestMapping("/stuMyLose")
-	public String stuMyLose(){
-
+	public String stuMyLose(ModelMap modelMap){
+		modelMap.addAttribute("name", name);
 		return "stuMyLose";
 	}
 	//遗失信息登记
 	@RequestMapping("/stuLose")
-	public String stuLose(){
+	public String stuLose(ModelMap modelMap){
+		modelMap.addAttribute("name", name);
 		return "stuLose";
 	}
 	
 	//遗失信息处理
 	@RequestMapping("/LoseInfo")
 	public String LoseInfo(Lose lose){
-		System.out.println(lose);
 		stuSer.insertLose(lose);
 		return "stuMyLose";
 	}
