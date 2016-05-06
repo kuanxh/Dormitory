@@ -178,7 +178,7 @@
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
 							src="assets/avatars/user.jpg" alt="Jason's Photo" /> <span
-							class="user-info"> <small>Welcome,</small> ${student.name}
+							class="user-info"> <small>Welcome,</small> ${name}
 						</span> <i class="icon-caret-down"></i>
 					</a>
 
@@ -325,11 +325,11 @@
 						</script>
 
 					<ul class="breadcrumb">
-						<li><i class="icon-home home-icon"></i> <a href="#">Home</a>
+						<li><i class="icon-home home-icon"></i> <a href="#">${titleUrl.home }</a>
 						</li>
 
-						<li><a href="#">Other Pages</a></li>
-						<li class="active">Blank Page</li>
+						<li><a href="#">${titleUrl.two }</a></li>
+						<li class="active">${titleUrl.three }</li>
 					</ul>
 					<!-- .breadcrumb -->
 
@@ -348,10 +348,7 @@
 				<div class="page-content">
 					<div class="page-header">
 						<h1>
-							User Profile Page <small> <i
-								class="icon-double-angle-right"></i> 3 styles with inline
-								editable feature
-							</small>
+							${titleUrl.four }
 						</h1>
 					</div>
 					<!-- /.page-header -->

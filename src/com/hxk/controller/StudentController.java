@@ -38,6 +38,11 @@ public class StudentController {
 	//学生信息
 	@RequestMapping("/stuProfile")
 	public String showStuProfile(ModelMap modelMap,HttpServletRequest req){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("用户");
+		titleUrl.setThree("用户信息设置");
+		titleUrl.setFour("用户信息设置页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		
 		Cookie[] cookies = req.getCookies();
 		if(null != cookies){
@@ -61,7 +66,11 @@ public class StudentController {
 	//修改个人信息
 	@RequestMapping("/stuSetting")
 	public String setStuProfile(ModelMap modelMap){
-		
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("用户");
+		titleUrl.setThree("用户信息设置");
+		titleUrl.setFour("用户信息设置页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuSetting";
 	}
@@ -69,6 +78,11 @@ public class StudentController {
 	//日历
 	@RequestMapping("/stuCalendar")
 	public String showStuCalendar(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("日历");
+		titleUrl.setThree("日历");
+		titleUrl.setFour("日历页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuCalendar";
 	}
@@ -76,6 +90,11 @@ public class StudentController {
 	//卫生信息
 	@RequestMapping("/stuSanitation")
 	public String showSanitation(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("卫生");
+		titleUrl.setThree("卫生信息");
+		titleUrl.setFour("卫生信息页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuSanitation";
 	}
@@ -83,6 +102,11 @@ public class StudentController {
 	//报修信息填写
 	@RequestMapping("/stuRepair")
 	public String showRepair(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("报修");
+		titleUrl.setThree("在线报修");
+		titleUrl.setFour("在线报修页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuRepair";
 	}
@@ -90,6 +114,11 @@ public class StudentController {
 	//我的报修信息
 	@RequestMapping("/stuRepairInfo")
 	public String showRepairInfo(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("报修");
+		titleUrl.setThree("我的报修信息");
+		titleUrl.setFour("我的报修信息页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuRepairInfo";
 	}
@@ -112,6 +141,11 @@ public class StudentController {
 	//所有的遗失信息
 	@RequestMapping("/stuAllLose")
 	public String stuAllLose(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("遗失");
+		titleUrl.setThree("所有遗失信息");
+		titleUrl.setFour("所有遗失信息页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuAllLose";
 	}
@@ -121,12 +155,22 @@ public class StudentController {
 	
 	@RequestMapping("/stuMyLose")
 	public String stuMyLose(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("遗失");
+		titleUrl.setThree("我的遗失信息");
+		titleUrl.setFour("我的遗失信息页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuMyLose";
 	}
 	//遗失信息登记
 	@RequestMapping("/stuLose")
 	public String stuLose(ModelMap modelMap){
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("遗失");
+		titleUrl.setThree("遗失信息登记");
+		titleUrl.setFour("遗失信息登记页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
 		modelMap.addAttribute("name", name);
 		return "stuLose";
 	}

@@ -43,7 +43,7 @@
 
 <body>
 	<!-- Head部分 -->
-	<%@ include file="adminHead.jsp"%> 
+	<%@ include file="stuHead.jsp"%> 
 	
 	
 	<!-- PAGE CONTENT BEGINS -->
@@ -265,7 +265,7 @@
 	<!-- PAGE CONTENT ENDS -->
 	
 	<!-- footer部分 -->
-	<%@ include file="adminFooter.jsp"%> 
+	<%@ include file="stuFooter.jsp"%> 
 
 	<!-- basic scripts -->
 
