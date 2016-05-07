@@ -61,15 +61,14 @@
 		<div id="user-profile-3" class="user-profile row">
 			<div class="col-sm-offset-1 col-sm-10">
 				<div class="space"></div>
-				<form class="form-horizontal">
+				<form class="form-horizontal" method="post" enctype="multipart/form-data" action="infoSetting">
 					<div class="tabbable">
 						<ul class="nav nav-tabs padding-16">
 							<li class="active"><a data-toggle="tab" href="#edit-basic">
 									<i class="green icon-edit bigger-125"></i> 基本信息
 							</a></li>
 
-							<li><a data-toggle="tab" href="#edit-password"> <i
-									class="blue icon-key bigger-125"></i> 密码
+							<li><a data-toggle="tab" href="#edit-password"> <i class="blue icon-key bigger-125"></i> 密码
 							</a></li>
 						</ul>
 
@@ -80,140 +79,24 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label no-padding-right"></label>
 									<div class="no-padding-right col-xs-12 col-sm-4">
-										<input type="file" />
+										<input type="file" name= "avatar"/>
 									</div>
 								</div>
-
-
 								<hr />
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-username">姓名</label>
-
-									<div class="col-sm-8">
-										<input class="col-xs-12 col-sm-4" type="text"
-											id="form-field-username" placeholder="Username"
-											value="alexdoe" />
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-date">生日</label>
-
-									<div class="col-sm-9">
-										<div class="input-medium">
-											<div class="input-group">
-												<input class="input-medium date-picker" id="form-field-date"
-													type="text" data-date-format="dd-mm-yyyy"
-													placeholder="dd-mm-yyyy" /> <span
-													class="input-group-addon"> <i class="icon-calendar"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right">性别</label>
-
-									<div class="col-sm-9">
-										<label class="inline"> <input name="form-field-radio"
-											type="radio" class="ace" /> <span class="lbl">男</span>
-										</label> &nbsp; &nbsp; &nbsp; <label class="inline"> <input
-											name="form-field-radio" type="radio" class="ace" /> <span
-											class="lbl"> 女</span>
-										</label>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-comment">个人简介</label>
-
-									<div class="col-sm-5">
-										<textarea id="form-field-comment"></textarea>
-									</div>
-								</div>
-
 								<div class="space"></div>
 								<h4 class="header blue bolder smaller">Contact</h4>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-email">邮箱</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon input-icon-right"> <input
-											type="email" id="form-field-email" value="alexdoe@gmail.com" />
-											<i class="icon-envelope"></i>
-										</span>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-website">个人网站</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon input-icon-right"> <input
-											type="url" id="form-field-website"
-											value="http://www.alexdoe.com/" /> <i class="icon-globe"></i>
-										</span>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
 								<div class="form-group">
 									<label class="col-sm-3 control-label no-padding-right"
 										for="form-field-phone">手机</label>
 
 									<div class="col-sm-9">
-										<span class="input-icon input-icon-right"> <input
-											 type="text"
-											id="form-field-phone" /> <i
-											class="icon-phone icon-flip-horizontal"></i>
+										<span class="input-icon input-icon-right"> 
+										<input type="text" id="form-field-phone" /> 
+										<i class="icon-phone icon-flip-horizontal"></i>
 										</span>
 									</div>
 								</div>
 
-								<div class="space"></div>
-								<h4 class="header blue bolder smaller">Social</h4>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-facebook">Facebook</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon"> <input type="text"
-											value="facebook_alexdoe" id="form-field-facebook" /> <i
-											class="icon-facebook blue"></i>
-										</span>
-									</div>
-								</div>
-
-								<div class="space-4"></div>
-
-								<div class="form-group">
-									<label class="col-sm-3 control-label no-padding-right"
-										for="form-field-twitter">Twitter</label>
-
-									<div class="col-sm-9">
-										<span class="input-icon"> <input type="text"
-											value="twitter_alexdoe" id="form-field-twitter" /> <i
-											class="icon-twitter light-blue"></i>
-										</span>
-									</div>
-								</div>
 							</div>
 
 
@@ -245,9 +128,9 @@
 
 					<div class="clearfix form-actions">
 						<div class="col-md-offset-3 col-md-9">
-							<button class="btn btn-info" type="button">
+							<input class="btn btn-info" type="submit">
 								<i class="icon-ok bigger-110"></i> Save
-							</button>
+							</input>
 
 							&nbsp; &nbsp;
 							<button class="btn" type="reset">

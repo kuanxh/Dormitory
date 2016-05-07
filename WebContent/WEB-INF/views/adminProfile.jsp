@@ -76,7 +76,7 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-3 center">
 							<span class="profile-picture">
-								<img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="assets/avatars/profile-pic.jpg" />
+								<img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="showAvatar" />
 							</span>
 
 							<div class="space space-4"></div>

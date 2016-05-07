@@ -1,6 +1,9 @@
 package com.hxk.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
+import com.hxk.model.AdminForm;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
 import com.hxk.model.Sanitation;
@@ -33,6 +37,8 @@ public class AdminController {
 	
 	
 	private String name = null;
+	
+	private Admin admin = null;
 	//根据URL地址来进行页面跳转
 	/*
 	@RequestMapping("/{url}")
@@ -78,11 +84,15 @@ public class AdminController {
 	//个人信息
 	@RequestMapping("/adminProfile")
 	public String showProfile(ModelMap modelMap ,HttpServletRequest req){
+		
+		//设置导航信息
 		titleUrl.setHome("首页");
 		titleUrl.setTwo("用户");
 		titleUrl.setThree("用户信息");
 		titleUrl.setFour("用户信息页面");
 		modelMap.addAttribute("titleUrl", titleUrl);
+		
+		//获取cookie的值
 		String idNum;
 		Cookie[] cookies = req.getCookies();
 		if(null != cookies){
@@ -90,11 +100,9 @@ public class AdminController {
 				Cookie cookie = cookies[i];
 				if(cookie.getName().equals("idNum")){
 					idNum = cookie.getValue();
-					Admin admin = adminService.getAdmin(idNum);
-					
+					admin = adminService.getAdmin(idNum);
 					//获取name存储到cookie中给其他页面来使用
 					name = admin.getName();
-					
 					
 					modelMap.addAttribute("admin", admin);
 					modelMap.addAttribute("name", name);
@@ -102,8 +110,30 @@ public class AdminController {
 				}
 			}
 		}
+		
+		//
+		
 		return "adminProfile";
 	}
+	
+	//显示管理员头像
+	@RequestMapping("/showAvatar")
+	public void getAvatar(HttpServletResponse response) throws IOException{
+		byte[] data = admin.getAvatar();
+		response.setContentType("image/jpeg");  
+		response.setCharacterEncoding("UTF-8");  
+	    OutputStream outputSream = response.getOutputStream();  
+	    InputStream in = new ByteArrayInputStream(data);  
+	    int len = 0;  
+	    byte[] buf = new byte[1024];  
+	    while ((len = in.read(buf, 0, 1024)) != -1) {  
+	        outputSream.write(buf, 0, len);  
+	    }  
+	    outputSream.close();
+	}
+	
+	
+	
 	//日历
 	@RequestMapping("/adminCalendar")
 	public String showCalendar(ModelMap modelMap){
@@ -378,5 +408,23 @@ public class AdminController {
 		InputStream in = file.getInputStream();
 		adminService.insertSan(in);
 		return "adminSanitationGL";
+	}
+	
+	
+	
+	//个人信息设置
+	@RequestMapping(value="/infoSetting")
+	public String infoSetting(ModelMap modelMap,AdminForm adminForm) throws IOException{
+		//System.out.println(adminForm);
+		
+		MultipartFile avatar = adminForm.getAvatar();
+		InputStream is = avatar.getInputStream();  
+	    byte[] avatarData1 = new byte[(int) avatar.getSize()];  
+	    is.read(avatarData1);  
+
+	    System.out.println(avatarData1.getClass());
+	    adminService.saveAvatar(avatarData1);
+	    
+		return "adminProfile";
 	}
 }

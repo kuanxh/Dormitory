@@ -34,4 +34,8 @@ public interface AdminService {
 	
 	//获取所有报修的信息
 	public Admin getAdmin(String admNumber);
+	
+	
+	//插入头像
+	public void saveAvatar(byte[] avatarData);
 }

@@ -101,6 +101,9 @@ public class AdminServiceImpl implements AdminService{
 		return dorR;
 	}
 	
+	
+	
+	
 	//获取管理员信息
 	@Override
 	public Admin getAdmin(String admNumeber) {
@@ -260,9 +263,15 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	
-
+	
+	//插入头像
+	public void saveAvatar(byte[] avatarData) {
+//		byte[] ava = new byte[2];
+		//ava = avatarData.clone();
+		adminMapper.updateAdminAvatar(avatarData);
+	}
 	
 	
-
+	
 	
 }

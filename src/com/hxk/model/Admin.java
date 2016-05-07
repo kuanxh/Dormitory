@@ -12,6 +12,15 @@ public class Admin {
 	private String birth;
 	private String phone;
 	private String admnumber;
+	private byte[] avatar;
+	
+	
+	public byte[] getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(byte[] avatar) {
+		this.avatar = avatar;
+	}
 	public String getName() {
 		return name;
 	}

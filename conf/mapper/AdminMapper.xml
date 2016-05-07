@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hxk.mapper.AdminMapper">   
+<mapper namespace="com.hxk.mapper.AdminMapper">  
+
+    <resultMap type="com.hxk.model.Admin" id="modelAdmin">  
+        <result property="avatar" column="avatar"  javaType="byte[]" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />  
+        <result property="name"  column="name"  />  
+        <result property="gllc"  column="gllc" />
+        <result property="age"  column="age"  />  
+        <result property="birth"  column="birth" />
+        <result property="phone"  column="phone"  />  
+        <result property="admnumber"  column="admnumber" />
+    </resultMap>
    
 	<!--  查询管理员信息  -->
     <select id="selectAdmin" resultType="com.hxk.model.Admin">  
        select * from admin where admnumber = #{0}
     </select>
+    
+    <!-- 更新头像 -->
+    <update id="updateAdminAvatar" >
+       update  admin set avatar = #{ava ,javaType=byte[] ,jdbcType=BLOB ,typeHandler=org.apache.ibatis.type.BlobTypeHandler} where name = '黄宽宽'
+    </update>
     
 </mapper>
