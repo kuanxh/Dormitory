@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hxk.mapper.AdminMapper">  
-
+	<!--  -->
     <resultMap type="com.hxk.model.Admin" id="modelAdmin">  
         <result property="avatar" column="avatar"  javaType="byte[]" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />  
         <result property="name"  column="name"  />  
@@ -19,8 +19,8 @@
     </select>
     
     <!-- 更新头像 -->
-    <update id="updateAdminAvatar" >
-       update  admin set avatar = #{ava ,javaType=byte[] ,jdbcType=BLOB ,typeHandler=org.apache.ibatis.type.BlobTypeHandler} where name = '黄宽宽'
+    <update id="updateAdminAvatar" parameterType="Map" >
+       update  admin set avatar = #{FILE ,jdbcType=BLOB} where name = '黄宽宽'
     </update>
     
 </mapper>

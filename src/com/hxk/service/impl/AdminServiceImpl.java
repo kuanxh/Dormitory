@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -265,10 +267,15 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	//插入头像
-	public void saveAvatar(byte[] avatarData) {
+	public void saveAvatar(Map<String, Object> param) {
 //		byte[] ava = new byte[2];
 		//ava = avatarData.clone();
-		adminMapper.updateAdminAvatar(avatarData);
+//		if(avatarData == null){
+//			System.out.println("kong");
+//		}
+		adminMapper.updateAdminAvatar(param);
+		Admin amdin = adminMapper.selectAdmin("12345678");
+		System.out.println(amdin);
 	}
 	
 	

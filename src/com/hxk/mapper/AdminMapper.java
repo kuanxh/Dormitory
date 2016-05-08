@@ -1,4 +1,6 @@
 package com.hxk.mapper;
+import java.util.Map;
+
 import com.hxk.model.Admin;
 
 public interface AdminMapper {
@@ -7,6 +9,6 @@ public interface AdminMapper {
 	public Admin selectAdmin(String idNum);
 	
 	//更新头像
-	public void updateAdminAvatar(byte[] ava);
+	public void updateAdminAvatar(Map<String, Object> param);
 	
 }

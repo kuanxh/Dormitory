@@ -1,5 +1,7 @@
 package com.hxk.model;
 
+import java.util.Arrays;
+
 public class Admin {
 
 	public Admin() {
@@ -60,7 +62,8 @@ public class Admin {
 	@Override
 	public String toString() {
 		return "Admin [name=" + name + ", gllc=" + gllc + ", age=" + age + ", birth=" + birth + ", phone=" + phone
-				+ ", admnumber=" + admnumber + "]";
+				+ ", admnumber=" + admnumber + ", avatar=" + Arrays.toString(avatar) + "]";
 	}
+	
 
 }

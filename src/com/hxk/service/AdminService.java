@@ -3,6 +3,7 @@ package com.hxk.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
@@ -37,5 +38,5 @@ public interface AdminService {
 	
 	
 	//插入头像
-	public void saveAvatar(byte[] avatarData);
+	public void saveAvatar(Map<String, Object> param);
 }
