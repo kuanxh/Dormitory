@@ -40,11 +40,11 @@ public class LoginController {
 			Cookie cookie = new Cookie("idNum", user.getName());
 			res.addCookie(cookie);
 		}
-		if(user.getType().equals("stu")){
+		if(user.getType().equals("学生")){
 			return "redirect:stuProfile";
-		}else if(user.getType().equals("sup")){
+		}else if(user.getType().equals("系统管理员")){
 			return "redirect:supProfile";
-		}else if(user.getType().equals("adm")){
+		}else if(user.getType().equals("宿舍管理员")){
 			
 			//鏍规嵁鍗″彿鏉ユ煡璇㈠鐢�
 //			AdminStu adminStu = adminSerImpl.getStudent(user.getName());

@@ -61,13 +61,12 @@
 		<div id="user-profile-3" class="user-profile row">
 			<div class="col-sm-offset-1 col-sm-10">
 				<div class="space"></div>
-				<form class="form-horizontal" method="post" enctype="multipart/form-data" action="infoSetting">
+				<form class="form-horizontal" method="post" enctype="multipart/form-data" action="userInfoSetting">
 					<div class="tabbable">
 						<ul class="nav nav-tabs padding-16">
 							<li class="active"><a data-toggle="tab" href="#edit-basic">
 									<i class="green icon-edit bigger-125"></i> 基本信息
 							</a></li>
-
 						</ul>
 
 						<div class="tab-content profile-edit-tab-content">
@@ -98,7 +97,7 @@
 									<div class="col-sm-9">
 									<select name="type" class="col-sm-4" id="form-field-select-1">
 										<option value="">&nbsp;</option>
-										<option value="超级管理员">超级管理员</option>
+										<option value="系统管理员">系统管理员</option>
 										<option value="宿舍管理员">宿舍管理员</option>
 										<option value="学生">学生</option>
 									</select>
@@ -113,7 +112,6 @@
 					<div class="clearfix form-actions">
 						<div class="col-md-offset-3 col-md-9">
 							<input class="btn btn-info" type="submit">
-								<i class="icon-ok bigger-110"></i> Save
 							</input>
 
 							&nbsp; &nbsp;

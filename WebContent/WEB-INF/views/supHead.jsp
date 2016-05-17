@@ -251,7 +251,7 @@
 					</a></li>
 
 					<li>
-						<a href="stuCalendar">
+						<a href="supCalendar">
 							<i class="icon-calendar"></i>
 							<span class="menu-text">
 								日历
@@ -267,6 +267,9 @@
 						</span> <b class="arrow icon-angle-down"></b>
 					</a>
 						<ul class="submenu">
+							<li><a href="supShowInfo"> <i
+									class="icon-double-angle-right"></i> 所有用户信息
+							</a></li>
 							<li><a href="supUsersInfo"> <i
 									class="icon-double-angle-right"></i> 信息批量添加
 							</a></li>

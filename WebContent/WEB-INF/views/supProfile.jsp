@@ -76,7 +76,7 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-3 center">
 							<span class="profile-picture">
-								<img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" src="showSupAvatar" />
+								<img class=" img-responsive"   src="showSupAvatar" />
 							</span>
 
 							<div class="space space-4"></div>
@@ -84,7 +84,7 @@
 
 						<div class="col-xs-12 col-sm-9">
 							<h4 class="blue">
-								<span class="middle">${admin.name }</span>
+								<span class="middle">${supadmin.name }</span>
 							</h4>
 
 							<div class="profile-user-info">
@@ -92,21 +92,21 @@
 									<div class="profile-info-name"> 姓名 </div>
 
 									<div class="profile-info-value">
-										<span>${admin.name }</span>
+										<span>${supadmin.name }</span>
 									</div>
 								</div>
 								<div class="profile-info-row">
 									<div class="profile-info-name"> 手机号 </div>
 
 									<div class="profile-info-value">
-										<span>${admin.phone }</span>
+										<span>${supadmin.phone }</span>
 									</div>
 								</div>
 								<div class="profile-info-row">
 									<div class="profile-info-name"> 工号 </div>
 
 									<div class="profile-info-value">
-										<span>${admin.admnumber }</span>
+										<span>${supadmin.supnumber }</span>
 									</div>
 								</div>
 							</div>

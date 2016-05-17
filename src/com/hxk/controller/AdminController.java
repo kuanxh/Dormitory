@@ -107,10 +107,8 @@ public class AdminController {
 					admin = adminService.getAdmin(idNum);
 					//获取name存储到cookie中给其他页面来使用
 					name = admin.getName();
-					
 					modelMap.addAttribute("admin", admin);
-					modelMap.addAttribute("name", name);
-					
+					modelMap.addAttribute("name", name);	
 				}
 			}
 		}

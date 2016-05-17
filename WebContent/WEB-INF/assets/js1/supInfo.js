@@ -8,14 +8,14 @@
 	
 		jQuery(grid_selector).jqGrid({
 			//direction: "rtl",
-			url : 'http://localhost:8080/Dormitory/info/myLose',
+			url : 'http://localhost:8080/Dormitory/info/supGetUserInfo',
         	datatype : "json",
         	
 //			data: grid_data,
 //			datatype: "local",
 			
 			height: 250,
-			colNames:[' ', 'ID','宿舍号','姓名', '学院','班级','手机号','日期','备注'],
+			colNames:[' ', 'ID','用户名','姓名','类型'],
 			colModel:[
 				{name:'myac',index:'', width:80, fixed:true, sortable:false, resize:false,
 					formatter:'actions', 
@@ -26,14 +26,11 @@
 					}
 				},
 				{name:'id',index:'id', width:60, sorttype:"String", editable: true},
-				{name:'number',index:'number', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
 				{name:'name',index:'name', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'academy',index:'academy', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'grade',index:'grade', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'phone',index:'phone', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'date',index:'date', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
-				{name:'comment',index:'comment', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}}
-			],
+				{name:'password',index:'password', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				{name:'type',index:'type', width:150,editable: true,editoptions:{size:"20",maxlength:"30"}},
+				
+			], 
 	
 			viewrecords : true,
 			rowNum:10,
@@ -58,7 +55,7 @@
 			},
 	
 			editurl: $path_base+"/dummy.html",//nothing is saved
-			caption: "我的遗失信息",
+			caption: "所有用户管理",
 	
 	
 			autowidth: true

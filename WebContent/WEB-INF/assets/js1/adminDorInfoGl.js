@@ -84,7 +84,7 @@
 			},
 	
 			editurl: $path_base+"/dummy.html",//nothing is saved
-			caption: "学生信息管理",
+			caption: "宿舍信息管理",
 	
 	
 			autowidth: true

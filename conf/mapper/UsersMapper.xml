@@ -6,4 +6,14 @@
     <select id="selectUser"  resultType="com.hxk.model.Users">    
        select * from users where name = #{0} and password = #{1}
     </select>
+    
+    <!--  查询所有的记录  -->    
+    <select id="selectAllUser"  resultType="com.hxk.model.Users">    
+       select * from users
+    </select>
+    
+    <!-- 插入数据库 -->
+    <insert id="insertUser">
+    	insert into users (name,password,type) value (#{name},#{password},#{type})
+    </insert>
 </mapper>
