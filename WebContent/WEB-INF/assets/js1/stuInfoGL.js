@@ -48,7 +48,6 @@
 					formatter:'actions', 
 					formatoptions:{ 
 						keys:true,
-						
 						delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
 						//editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
 					}
@@ -76,19 +75,18 @@
 				var table = this;
 				setTimeout(function(){
 					styleCheckbox(table);
-					
 					updateActionIcons(table);
 					updatePagerIcons(table);
 					enableTooltips(table);
 				}, 0);
 			},
 	
-			editurl: $path_base+"/dummy.html",//nothing is saved
+			//editurl: $path_base+"/dummy.html",//nothing is saved
+			editurl: 'http://localhost:8080/Dormitory/info/adminStu',
+			
+			
 			caption: "学生信息管理",
-	
-	
 			autowidth: true
-	
 		});
 	
 		//enable search/filter toolbar
@@ -103,6 +101,8 @@
 					.after('<span class="lbl"></span>');
 			}, 0);
 		}
+		
+		
 		//enable datepicker
 		function pickDate( cellvalue, options, cell ) {
 			setTimeout(function(){

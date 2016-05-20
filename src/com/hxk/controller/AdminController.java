@@ -435,4 +435,46 @@ public class AdminController {
 	    
 		return "adminProfile";
 	}
+	
+	
+	
+	
+	//================================================================================
+	//jqgrid的增删改查
+	//
+	
+	//删除数据
+	@RequestMapping(value="/info/adminStu")
+	public String jqDridadminStu(String id){
+		System.out.println(id);
+		return "adminStuInfoGL";
+	}
+	
+	
+	//删除数据
+	@RequestMapping(value="/info/delAdminStu")
+	public String delAdminStu(AdminStu adminStu){
+		System.out.println(adminStu);
+		return "adminStuInfoGL";
+	}
+	//修改数据
+	@RequestMapping(value="/info/updateAdminStu")
+	public String updateAdminStu(AdminStu adminStu){
+		System.out.println(adminStu);
+		return "adminStuInfoGL";
+	}
+	//添加一条数据
+	@RequestMapping(value="/info/addAdminStu")
+	public String addAdminStu(AdminStu adminStu){
+		System.out.println(adminStu);
+		adminService.insertOneStudent(adminStu);
+		return "adminStuInfoGL";
+	}
+	//查找数据
+	@RequestMapping(value="/info/findAdminStu")
+	public String findAdminStu(AdminStu adminStu){
+		System.out.println(adminStu);
+		return "adminStuInfoGL";
+	}	
+	
 }

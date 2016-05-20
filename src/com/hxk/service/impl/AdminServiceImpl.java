@@ -62,11 +62,6 @@ public class AdminServiceImpl implements AdminService{
 		return dor;
 	}
 	
-	@Override
-	public AdminStu getStudent(String id) {
-		return adminStuMapper.selectStudentById(id);
-	}
-	
 	//获取所有游客的信息
 	@Override
 	public List<Visitor> getAllVisitor() {
@@ -276,6 +271,33 @@ public class AdminServiceImpl implements AdminService{
 		adminMapper.updateAdminAvatar(param);
 		Admin amdin = adminMapper.selectAdmin("12345678");
 		System.out.println(amdin);
+	}
+
+	
+	
+	//学生信息的jqgrid
+	//学生的添加
+	public int insertOneStudent(AdminStu adminStu) {
+		adminStuMapper.insertStudent(adminStu);
+		return 0;
+	}
+
+	@Override
+	public int deleteStudent(String id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateStudent(AdminStu adminStu) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int findStuByName(String name) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

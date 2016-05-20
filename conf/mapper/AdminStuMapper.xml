@@ -8,22 +8,30 @@
        select * from adminStu
     </select>
     
-    <!--  查询单条记录      -->
-    <select id="selectStudentById" parameterType="String" resultType="com.hxk.model.AdminStu">    
-       select * from adminstu where idNum = #{studentId}    
-    </select>
     
     <!--  插入单条学生记录      -->
     <insert id="insertStudent">
         insert into adminstu (id,year,name,address,number,phone) value (#{id},#{year},#{name},#{address},#{number},#{phone})
     </insert>
     
-    <!--  插入多条记录      -->
-    <insert id="insertStudents" parameterType="com.hxk.model.AdminStu">
-        insert into 
-    </insert>
+    <!-- 修改学生信息 -->
+    <update id="updateStudent">
+    	update adminstu set id = #{id}, year = #{year}, name = #{name}, address = #{address}, number = #{number},phone = #{phone} where id=#{id}
+    </update>
     
-    <!-- 批量插入数据 -->
+    <!-- 删除学生信息 -->
+    <delete id="delStudent">
+    	delete from adminstu where id = #{id}
+    </delete>
+    
+    <!-- 查询学生信息 
+    <select id="selectStudentById" resultType="com.hxk.model.AdminStu">  
+       select * from adminStu
+    </select>
+    -->
+    
+    
+    <!-- 批量插入数据 
     <insert id="addTrainRecordBatch" useGeneratedKeys="true" parameterType="java.util.List">  
     <selectKey resultType="long" keyProperty="id" order="AFTER">  
         SELECT  
@@ -34,17 +42,11 @@
     <foreach collection="list" item="item" index="index" separator="," >  
         (#{item.addTime},#{item.empId},#{item.activityId},#{item.flag})  
     </foreach>  
-</insert> 
-
-	<!--  查询所有宿舍记录  -->
-    <select id="selectAllDor" resultType="com.hxk.model.AdminDor">  
-       select * from admindor
-    </select>
-    <!--  插入单条宿舍记录      -->
-    <insert id="insertDor">
-        insert into admindor (id,count,name,number,phone,admin) value (#{id},#{count},#{name},#{number},#{phone},#{admin})
-    </insert>
-    
+	</insert> 
+	-->
+	
+	
+   
     
     
     
