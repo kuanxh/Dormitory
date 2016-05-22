@@ -1,8 +1,6 @@
 package com.hxk.mapper;
 
 import java.util.List;
-
-import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 
 public interface AdminStuMapper {
@@ -19,7 +17,7 @@ public interface AdminStuMapper {
 	public int updateStudent(AdminStu adminStu);
 	
 	//根据姓名搜索学生信息
-	public int findStuByName(String name);
+	public List<AdminStu> selectStuByName(String name);
 
 	//根据宿舍号搜索学生信息
 	//public int findStudent(String number);

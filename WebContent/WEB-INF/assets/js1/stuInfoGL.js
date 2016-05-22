@@ -82,7 +82,7 @@
 			},
 	
 			//editurl: $path_base+"/dummy.html",//nothing is saved
-			editurl: 'http://localhost:8080/Dormitory/info/adminStu',
+			editurl: 'http://localhost:8080/Dormitory/info/jqgridAdminStu',
 			
 			
 			caption: "学生信息管理",

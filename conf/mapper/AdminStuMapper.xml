@@ -24,11 +24,11 @@
     	delete from adminstu where id = #{id}
     </delete>
     
-    <!-- 查询学生信息 
-    <select id="selectStudentById" resultType="com.hxk.model.AdminStu">  
-       select * from adminStu
+    <!-- 根据姓名查询学生信息 -->
+    <select id="selectStuByName" resultType="com.hxk.model.AdminStu">  
+       select * from adminStu where name = #{0}
     </select>
-    -->
+    
     
     
     <!-- 批量插入数据 

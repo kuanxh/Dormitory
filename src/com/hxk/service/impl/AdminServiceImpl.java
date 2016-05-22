@@ -284,20 +284,20 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public int deleteStudent(String id) {
-		// TODO Auto-generated method stub
+		adminStuMapper.delStudent(id);
 		return 0;
 	}
 
 	@Override
 	public int updateStudent(AdminStu adminStu) {
-		// TODO Auto-generated method stub
+		adminStuMapper.updateStudent(adminStu);
 		return 0;
 	}
 
 	@Override
-	public int findStuByName(String name) {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<AdminStu> findStuByName(String name) {
+		List<AdminStu> adminStu = adminStuMapper.selectStuByName(name);
+		return adminStu;
 	}
 	
 	

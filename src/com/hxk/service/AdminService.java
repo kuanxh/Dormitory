@@ -55,5 +55,5 @@ public interface AdminService {
 	public int updateStudent(AdminStu adminStu);
 	
 	//根据姓名搜索学生信息
-	public int findStuByName(String name);
+	public List<AdminStu> findStuByName(String name);
 }

@@ -15,20 +15,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.google.gson.JsonObject;
 import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminForm;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
+import com.hxk.model.Filters;
 import com.hxk.model.Sanitation;
 import com.hxk.model.TitleUrl;
 import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
+
+import net.sf.json.JSONObject;
 
 @Controller
 //@RequestMapping("/admin")
@@ -270,11 +276,40 @@ public class AdminController {
 	
 	
 	//管理员下的学生信息
+	//这里处理jqgrid中的查询信息
 	@ResponseBody
 	@RequestMapping("/info/adminStu")
-	public  List<AdminStu> showStuInfo(){
-		List<AdminStu> stu = adminService.getAllStudent();
-		return stu;
+	public  List<AdminStu> showStuInfo(HttpServletRequest req){
+		String search = req.getParameter("_search");
+		if(search.equals("false")){
+			List<AdminStu> stu = adminService.getAllStudent();
+			return stu;
+		}else if(search.equals("true")){
+			System.out.println(req.getParameter("filters"));
+			String filters = req.getParameter("filters");
+			//JSONObject jsonObject = JSONObject.fromObject(filters);
+//			String field = jsonObject.getJSONObject("rules").getString("field");
+//			System.out.println(field);
+			
+			//System.out.println(filter);
+			
+			//接收{}对象，此处接收数组对象会有异常  
+	        if(filters.indexOf("[") != -1){  
+	        	filters = filters.replace("[", "");  
+	        }  
+	        if(filters.indexOf("]") != -1){  
+	        	filters = filters.replace("]", "");  
+	        }  
+	        JSONObject obj = JSONObject.fromObject(filters);//将json字符串转换为json对象  
+	        Filters filter = (Filters) JSONObject.toBean(obj, Filters.class);
+	        System.out.println(filter);
+	        if(filter.getRules().getField().equals("name")){
+	        	String name = filter.getRules().getData();
+	        	return adminService.findStuByName(name);
+	        }
+		}
+		return null;
+		
 	}
 	
 	
@@ -442,15 +477,23 @@ public class AdminController {
 	//================================================================================
 	//jqgrid的增删改查
 	//
-	
-	//删除数据
-	@RequestMapping(value="/info/adminStu")
-	public String jqDridadminStu(String id){
-		System.out.println(id);
+	@RequestMapping(value="/info/jqgridAdminStu")
+	public String jqgridAdminStu(AdminStu adminStu,String oper,HttpServletRequest req){
+		System.out.println(adminStu);
+		System.out.println(oper);
+		if(oper.equals("del")){
+			String id = adminStu.getId();
+			adminService.deleteStudent(id);
+			return "adminStuInfoGL";
+		}else if(oper.equals("add")){
+			adminService.insertOneStudent(adminStu);
+		}else if(oper.equals("edit")){
+			adminService.updateStudent(adminStu);
+		}
 		return "adminStuInfoGL";
 	}
 	
-	
+	/*
 	//删除数据
 	@RequestMapping(value="/info/delAdminStu")
 	public String delAdminStu(AdminStu adminStu){
@@ -475,6 +518,6 @@ public class AdminController {
 	public String findAdminStu(AdminStu adminStu){
 		System.out.println(adminStu);
 		return "adminStuInfoGL";
-	}	
-	
+	}	*/
+	//======================================================
 }
