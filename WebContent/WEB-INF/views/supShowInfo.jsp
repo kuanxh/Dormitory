@@ -45,9 +45,7 @@
 
 	<!-- PAGE CONTENT BEGINS -->
 	<div class="alert alert-info">
-		<i class="icon-hand-right"></i> Please note that demo server is not
-		configured to save the changes, therefore you may get an error
-		message.
+		<i class="icon-hand-right"></i> 欢迎使用高校宿舍管理系统！
 		<button class="close" data-dismiss="alert">
 			<i class="icon-remove"></i>
 		</button>

@@ -54,10 +54,8 @@
 				}, 0);
 			},
 	
-			editurl: $path_base+"/dummy.html",//nothing is saved
+			editurl: 'http://localhost:8080/Dormitory/info/jqgridSupUserInfo',//nothing is saved
 			caption: "所有用户管理",
-	
-	
 			autowidth: true
 	
 		});

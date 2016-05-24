@@ -52,8 +52,7 @@
 				<i class="icon-remove"></i>
 			</button>
 
-			<i class="icon-umbrella bigger-120 blue"></i> Click on the image
-			below or on profile fields to edit them ...
+			<i class="icon-umbrella bigger-120 blue"></i>欢迎使用高校宿舍管理系统！
 		</div>
 	</div>
 	<div class="hr dotted"></div>

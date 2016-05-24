@@ -53,7 +53,7 @@
 			</button>
 
 			<i class="icon-umbrella bigger-120 blue"></i>
-			Click on the image below or on profile fields to edit them ...
+			欢迎使用高效宿舍管理系统!
 		</div>
 	</div>
 

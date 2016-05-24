@@ -26,8 +26,10 @@ public class SuperAdminController {
 	
 	private TitleUrl titleUrl = new TitleUrl();
 	
+	//用来显示头像信息的
 	private String name = null;
 	
+	//用来显示用户信息的
 	private SupAdmin supAdmin = null;
 	
 	public SuperAdminController() {
@@ -71,22 +73,50 @@ public class SuperAdminController {
 	//超级管理员信息
 	@RequestMapping("/supCalendar")
 	public String showSupCalendar(ModelMap modelMap){
+		//设置导航信息
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("日历");
+		titleUrl.setThree("日历");
+		titleUrl.setFour("系统管理员日历");
+		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "supCalendar";
 	}
 	//信息的批量添加
 	@RequestMapping("/supUsersInfo")
 	public String showSupUsersInfo(ModelMap modelMap){
+		//设置导航信息
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("信息添加");
+		titleUrl.setThree("用户批量添加");
+		titleUrl.setFour("用户信息添加页面");
+		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "supUsersInfo";
 	}
 	//单个信息的批量添加
 	@RequestMapping("/supUserInfo")
 	public String showSupUserInfo(ModelMap modelMap){
+		//设置导航信息
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("信息添加");
+		titleUrl.setThree("用户添加");
+		titleUrl.setFour("用户信息添加");
+		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "supUserInfo";
 	}
 	
 	//显示所有的用户信息
 	@RequestMapping("/supShowInfo")
 	public String showSupInfo(ModelMap modelMap){
+		//设置导航信息
+		titleUrl.setHome("首页");
+		titleUrl.setTwo("信息添加");
+		titleUrl.setThree("信息显示");
+		titleUrl.setFour("所有用户信息显示");
+		modelMap.addAttribute("titleUrl", titleUrl);
+		modelMap.addAttribute("name", name);
 		return "supShowInfo";
 	}
 	
@@ -94,7 +124,7 @@ public class SuperAdminController {
 	@RequestMapping("/showSupAvatar")
 	public void showSupAvatar(HttpServletResponse response) throws IOException{
 		byte[] data = supAdmin.getAvatar();
-		response.setContentType("image/jpeg");  
+		response.setContentType("image/jpeg");
 		response.setCharacterEncoding("UTF-8");  
 	    OutputStream outputSream = response.getOutputStream();  
 	    InputStream in = new ByteArrayInputStream(data);  
@@ -118,6 +148,22 @@ public class SuperAdminController {
 	@RequestMapping("/userInfoSetting")
 	public String userInfoSetting(Users user){
 		supService.addUser(user);
+		return "supShowInfo";
+	}
+	
+	//jqgrid用户信息处理
+	@RequestMapping("/jqgridSupUserInfo")
+	public String jqgridSupUserInfo(Users users,HttpServletRequest req){
+		String oper = req.getParameter("oper");
+		if(oper.equals("del")){
+//			String id = adminStu.getId();
+//			adminService.deleteStudent(id);
+			return "adminStuInfoGL";
+		}else if(oper.equals("add")){
+			supService.addUser(users);
+		}else if(oper.equals("edit")){
+			//supService.updateStudent(users);
+		}
 		return "supShowInfo";
 	}
 }
