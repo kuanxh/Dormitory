@@ -52,7 +52,7 @@ public class SuperAdminController {
 		if(null != cookies){
 			for(int i = 0; i < cookies.length; i++){
 				Cookie cookie = cookies[i];
-				if(cookie.getName().equals("idNum")){
+				if(cookie.getName().equals("SidNum")){
 					idNum = cookie.getValue();
 					System.out.println(idNum);
 					supAdmin = supService.getSupAdmin(idNum);

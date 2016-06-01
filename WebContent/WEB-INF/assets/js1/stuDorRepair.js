@@ -57,7 +57,7 @@
 			},
 	
 			editurl: $path_base+"/dummy.html",//nothing is saved
-			caption: "学生信息管理",
+			caption: "报修信息管理",
 	
 	
 			autowidth: true

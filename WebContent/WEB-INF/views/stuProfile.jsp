@@ -54,7 +54,7 @@
 			</button>
 
 			<i class="icon-umbrella bigger-120 blue"></i>
-			Click on the image below or on profile fields to edit them ...
+			欢迎使用高校宿舍管理系统！
 		</div>
 
 		
@@ -99,7 +99,7 @@
 						<div class="col-xs-12 col-sm-9">
 							<h4 class="blue">
 								
-								<span class="middle">${student.name} </span>
+								<span class="middle">学生 </span>
 	
 							</h4>
 

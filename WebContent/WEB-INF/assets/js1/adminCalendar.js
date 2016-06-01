@@ -1,5 +1,5 @@
 
-	//<!-- 文件上传 -->
+	//<!-- 日历 -->
 
 			jQuery(function($) {
 
@@ -23,10 +23,16 @@
 			revert: true,      // will cause the event to go back to its
 			revertDuration: 0  //  original position after the drag
 		});
-		
 	});
 
-
+	var formatDate = function (date) {  
+	    var y = date.getFullYear();  
+	    var m = date.getMonth() + 1;  
+	    m = m < 10 ? '0' + m : m;  
+	    var d = date.getDate();  
+	    d = d < 10 ? ('0' + d) : d;  
+	    return y + '-' + m + '-' + d;  
+	}; 
 
 
 	/* initialize the calendar
@@ -49,23 +55,7 @@
 			center: 'title',
 			right: 'month,agendaWeek,agendaDay'
 		},
-		events: [
-		{
-			title: 'All Day Event',
-			start: new Date(y, m, 1),
-			className: 'label-important'
-		},
-		{
-			title: 'Long Event',
-			start: new Date(y, m, d-5),
-			end: new Date(y, m, d-2),
-			className: 'label-success'
-		},
-		{
-			title: 'Some Event',
-			start: new Date(y, m, d-3, 16, 0),
-			allDay: false
-		}]
+		events: 'info/findEvent'
 		,
 		editable: true,
 		droppable: true, // this allows things to be dropped onto the calendar !!!
@@ -99,23 +89,30 @@
 		selectable: true,
 		selectHelper: true,
 		select: function(start, end, allDay) {
-			
-			bootbox.prompt("New Event Title:", function(title) {
-				if (title !== null) {
-					calendar.fullCalendar('renderEvent',
-						{
-							title: title,
-							start: start,
-							end: end,
-							allDay: allDay
-						},
-						true // make the event "stick"
-					);
-				}
-			});
-			
 
-			calendar.fullCalendar('unselect');
+		
+			var title = prompt('Event Title:');
+	          if (title) {
+	              var params = {title: title,
+	                  start: formatDate(start),
+	                  end: formatDate(end),
+	                  allDay: allDay
+	              };
+	              $.ajax({
+	                  url:"http://localhost:8080/Dormitory/insertCalendar",
+	                  type:"post",
+	                  data:params,
+	                    dataType: 'json',
+	                    success: function(res){
+	                    	location.href ='adminProfile';
+	                    },
+	                    err:function(res){
+	                        $("#err1").html("<strong>操作有误!</strong>");
+	                        $("#err1").show();
+	                        setTimeout(function(){$("#err1").hide();},3000);
+	                    }
+	              });//insert
+	          }
 			
 		}
 		,
@@ -153,10 +150,6 @@
 				return false;
 			});
 			
-		
-			//console.log(calEvent.id);
-			//console.log(jsEvent);
-			//console.log(view);
 
 			// change the border color just for fun
 			//$(this).css('border-color', 'red');

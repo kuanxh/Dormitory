@@ -5,6 +5,7 @@ public class Sanitation {
 	public Sanitation() {
 		// TODO Auto-generated constructor stub
 	}
+	private int id;
 	private String number;//宿舍号
 	private String bed;//床
 	private String floor;//地面
@@ -12,6 +13,13 @@ public class Sanitation {
 	private String toilet;//厕所
 	private String loo;//洗手间
 	private String comment;//备注
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNumber() {
 		return number;
 	}

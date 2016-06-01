@@ -84,7 +84,7 @@
 
 						<div class="col-xs-12 col-sm-9">
 							<h4 class="blue">
-								<span class="middle">${supadmin.name }</span>
+								<span class="middle">系统管理员</span>
 							</h4>
 
 							<div class="profile-user-info">

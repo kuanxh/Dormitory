@@ -5,6 +5,7 @@ public class Visitor {
 	public Visitor() {
 		// TODO Auto-generated constructor stub
 	}
+	private int id;
 	private String name;
 	private String date;
 	private String sex;
@@ -12,6 +13,13 @@ public class Visitor {
 	private String email;
 	private String phone;
 	private String qq;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -59,6 +67,5 @@ public class Visitor {
 		return "Visitor [name=" + name + ", date=" + date + ", sex=" + sex + ", comment=" + comment + ", email=" + email
 				+ ", phone=" + phone + ", qq=" + qq + "]";
 	}
-	
 	
 }

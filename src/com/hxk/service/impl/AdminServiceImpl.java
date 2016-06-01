@@ -16,12 +16,14 @@ import com.hxk.mapper.AdminDorMapper;
 import com.hxk.mapper.AdminMapper;
 import com.hxk.mapper.AdminStuMapper;
 import com.hxk.mapper.DorRepairMapper;
+import com.hxk.mapper.EventMapper;
 import com.hxk.mapper.SanitationMapper;
 import com.hxk.mapper.VisitorMapper;
 import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
+import com.hxk.model.Event;
 import com.hxk.model.Sanitation;
 import com.hxk.model.Visitor;
 import com.hxk.service.AdminService;
@@ -47,6 +49,9 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Autowired
 	private AdminMapper adminMapper;
+	
+	@Autowired
+	private EventMapper eventMapper;
 	
 	//管理员学生信息管理
 	public List<AdminStu> getAllStudent() {
@@ -139,19 +144,16 @@ public class AdminServiceImpl implements AdminService{
 				for (int i = 0; i < hssfRow.getLastCellNum(); i++) {
 					HSSFCell adminStuHSSFCell = hssfRow.getCell(i);
 					if (i == 0) {
-						adminStu.setId(adminStuHSSFCell.getStringCellValue());
-						//adminStu.setId(Double.toString(adminStuHSSFCell.getNumericCellValue()));
-					} else if (i == 1) {
 						//adminStu.setYear(Double.toString(adminStuHSSFCell.getNumericCellValue()));
 						adminStu.setYear(adminStuHSSFCell.getStringCellValue());
-					} else if (i == 2) {
+					} else if (i == 1) {
 						adminStu.setName(adminStuHSSFCell.getStringCellValue());
-					} else if (i == 3) {
+					} else if (i == 2) {
 						adminStu.setAddress(adminStuHSSFCell.getStringCellValue());
-					} else if (i == 4) {
+					} else if (i == 3) {
 						//adminStu.setNumber(Double.toString(adminStuHSSFCell.getNumericCellValue()));
 						adminStu.setNumber(adminStuHSSFCell.getStringCellValue());
-					} else if (i == 5) {
+					} else if (i == 4) {
 						//adminStu.setPhone(Double.toString(adminStuHSSFCell.getNumericCellValue()));
 						adminStu.setPhone(adminStuHSSFCell.getStringCellValue());
 					}
@@ -191,16 +193,14 @@ public class AdminServiceImpl implements AdminService{
 				for (int i = 0; i < hssfRow.getLastCellNum(); i++) {
 					HSSFCell adminDorHSSFCell = hssfRow.getCell(i);
 					if (i == 0) {
-						adminDor.setId(adminDorHSSFCell.getStringCellValue());
-					} else if (i == 1) {
 						adminDor.setCount(adminDorHSSFCell.getStringCellValue());
-					} else if (i == 2) {
+					} else if (i == 1) {
 						adminDor.setName(adminDorHSSFCell.getStringCellValue());
-					} else if (i == 3) {
+					} else if (i == 2) {
 						adminDor.setNumber(adminDorHSSFCell.getStringCellValue());
-					} else if (i == 4) {
+					} else if (i == 3) {
 						adminDor.setPhone(adminDorHSSFCell.getStringCellValue());
-					} else if (i == 5) {
+					} else if (i == 4) {
 						adminDor.setAdmin(adminDorHSSFCell.getStringCellValue());
 					}
 				}
@@ -263,14 +263,10 @@ public class AdminServiceImpl implements AdminService{
 	
 	//插入头像
 	public void saveAvatar(Map<String, Object> param) {
-//		byte[] ava = new byte[2];
-		//ava = avatarData.clone();
-//		if(avatarData == null){
-//			System.out.println("kong");
-//		}
+
 		adminMapper.updateAdminAvatar(param);
-		Admin amdin = adminMapper.selectAdmin("12345678");
-		System.out.println(amdin);
+//		Admin amdin = adminMapper.selectAdmin("12345678");
+//		System.out.println(amdin);
 	}
 
 	
@@ -283,7 +279,7 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public int deleteStudent(String id) {
+	public int deleteStudent(int id) {
 		adminStuMapper.delStudent(id);
 		return 0;
 	}
@@ -298,6 +294,24 @@ public class AdminServiceImpl implements AdminService{
 	public List<AdminStu> findStuByName(String name) {
 		List<AdminStu> adminStu = adminStuMapper.selectStuByName(name);
 		return adminStu;
+	}
+
+	
+	@Override
+	public List<AdminStu> getStudentBySidx(Map<String , String> map) {
+		
+		return adminStuMapper.selectStudentBySidx(map);
+	}
+
+	@Override
+	public List<Event> findAllEvent() {
+		return eventMapper.selectEvent();
+	}
+
+	@Override
+	public int addEvent(Event event) {
+		eventMapper.insertEvent(event);
+		return 0;
 	}
 	
 	

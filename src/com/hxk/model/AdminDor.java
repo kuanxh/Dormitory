@@ -4,16 +4,16 @@ public class AdminDor {
 	public AdminDor() {
 		super();
 	}
-	private String id;
+	private int id;
 	private String count; //人数
 	private String name; //姓名
 	private String admin;//家庭住址
 	private String number;//宿舍号
 	private String phone;//手机号
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getCount() {

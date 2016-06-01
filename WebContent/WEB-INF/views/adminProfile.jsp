@@ -53,7 +53,7 @@
 			</button>
 
 			<i class="icon-umbrella bigger-120 blue"></i>
-			Click on the image below or on profile fields to edit them ...
+			欢迎使用高校宿舍管理系统！
 		</div>
 	</div>
 
@@ -76,25 +76,21 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-3 center">
 							<span class="profile-picture">
-								<img class="editable img-responsive" alt="Alex's Avatar"  src="showAvatar" />
+								<img class="editable img-responsive" alt="${admin.name }"  src="showAvatar" />
 							</span>
 
 							<div class="space space-4"></div>
 
-							<a href="#" class="btn btn-sm btn-block btn-success">
+							<a href="adminSetting" class="btn btn-sm btn-block btn-success">
 								<i class="icon-plus-sign bigger-120"></i>
-								<span class="bigger-110">Add as a friend</span>
+								<span class="bigger-110">修改信息</span>
 							</a>
 
-							<a href="#" class="btn btn-sm btn-block btn-primary">
-								<i class="icon-envelope-alt bigger-110"></i>
-								<span class="bigger-110">Send a message</span>
-							</a>
 						</div><!-- /span -->
 
 						<div class="col-xs-12 col-sm-9">
 							<h4 class="blue">
-								<span class="middle">${admin.name }</span>
+								<span class="middle">宿舍管理员</span>
 							</h4>
 
 							<div class="profile-user-info">

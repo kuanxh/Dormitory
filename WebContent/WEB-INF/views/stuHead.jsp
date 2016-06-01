@@ -20,7 +20,7 @@
 
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
-							src="assets/avatars/user.jpg" alt="Jason's Photo" /> <span
+							src="assets/avatars/user.jpg" /> <span
 							class="user-info"> <small>Welcome,</small> ${name}
 						</span> <i class="icon-caret-down"></i>
 					</a>
@@ -35,7 +35,7 @@
 
 							<li class="divider"></li>
 
-							<li><a href="login"> <i class="icon-off"></i> 注销
+							<li><a href=""> <i class="icon-off"></i> 注销
 							</a></li>
 						</ul></li>
 				</ul>
@@ -168,10 +168,10 @@
 						</script>
 
 					<ul class="breadcrumb">
-						<li><i class="icon-home home-icon"></i> <a href="#">${titleUrl.home }</a>
+						<li><i class="icon-home home-icon"></i> ${titleUrl.home }
 						</li>
 
-						<li><a href="#">${titleUrl.two }</a></li>
+						<li>${titleUrl.two }</li>
 						<li class="active">${titleUrl.three }</li>
 					</ul>
 					<!-- .breadcrumb -->

@@ -9,12 +9,15 @@ import com.hxk.model.Admin;
 import com.hxk.model.AdminDor;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
+import com.hxk.model.Event;
 import com.hxk.model.Sanitation;
 import com.hxk.model.Visitor;
 
 public interface AdminService {
+	//首次进入获取所有学生的信息
 	public List<AdminStu> getAllStudent();
-
+	//根据要求字段排序
+	public List<AdminStu> getStudentBySidx(Map<String , String> map);
 	
 	public void importAdminStuXls(InputStream in) throws IOException;
 	public List<AdminDor> getAllDor();
@@ -49,11 +52,17 @@ public interface AdminService {
 	public int insertOneStudent(AdminStu adminStu);
 	
 	//删除学生信息
-	public int deleteStudent(String id);
+	public int deleteStudent(int id);
 	
 	//修改学生信息
 	public int updateStudent(AdminStu adminStu);
 	
 	//根据姓名搜索学生信息
 	public List<AdminStu> findStuByName(String name);
+	
+	//获取管理员的活动信息
+	public List<Event> findAllEvent();	
+	
+	//插入活动
+	public int addEvent(Event event);
 }

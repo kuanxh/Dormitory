@@ -9,6 +9,6 @@
     </select>
     <!--  插入单条宿舍记录      -->
     <insert id="insertDor">
-        insert into admindor (id,count,name,number,phone,admin) value (#{id},#{count},#{name},#{number},#{phone},#{admin})
+        insert into admindor (count,name,number,phone,admin) value (#{count},#{name},#{number},#{phone},#{admin})
     </insert> 
 </mapper>

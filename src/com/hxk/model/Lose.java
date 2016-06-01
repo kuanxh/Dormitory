@@ -5,6 +5,7 @@ public class Lose {
 	public Lose() {
 		// TODO Auto-generated constructor stub
 	}
+	private int id;
 	private String number;
 	private String name;
 	private String academy;
@@ -12,6 +13,13 @@ public class Lose {
 	private String phone;
 	private String date;
 	private String comment;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNumber() {
 		return number;
 	}

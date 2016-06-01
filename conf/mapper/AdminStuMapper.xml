@@ -8,10 +8,14 @@
        select * from adminStu
     </select>
     
+    <!--  根据排序的字段查询所有学生记录  -->
+    <select id="selectStudentBySidx" resultType="com.hxk.model.AdminStu" parameterType="Map">  
+       select * from adminStu  order by ${sidx} ${sord}
+    </select>
     
     <!--  插入单条学生记录      -->
     <insert id="insertStudent">
-        insert into adminstu (id,year,name,address,number,phone) value (#{id},#{year},#{name},#{address},#{number},#{phone})
+        insert into adminstu (year,name,address,number,phone) value (#{year},#{name},#{address},#{number},#{phone})
     </insert>
     
     <!-- 修改学生信息 -->

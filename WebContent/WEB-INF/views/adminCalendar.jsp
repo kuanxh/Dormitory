@@ -158,6 +158,6 @@
 		<script src="assets/js/ace.min.js"></script>
 		
 		<!-- inline scripts related to this page -->
-		<script src="assets/js1/calendar.js"></script>
+		<script src="assets/js1/adminCalendar.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ public class Admin {
 	public Admin() {
 		// TODO Auto-generated constructor stub
 	}
-	
+	private int id;
 	private String name;
 	private String gllc;
 	private String age;
@@ -17,6 +17,12 @@ public class Admin {
 	private byte[] avatar;
 	
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public byte[] getAvatar() {
 		return avatar;
 	}

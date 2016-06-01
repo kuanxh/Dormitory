@@ -35,27 +35,31 @@ public class LoginController {
 		if(user == null){
 			return "/";
 		}
-		else{
-			//使用cookie来存储用户的唯一id
+//		else{
+//			//使用cookie来存储用户的唯一id
+//			Cookie cookie = new Cookie("idNum", user.getName());
+//			res.addCookie(cookie);
+//		}
+		else if(user.getType().equals("学生")){
 			Cookie cookie = new Cookie("idNum", user.getName());
 			res.addCookie(cookie);
-		}
-		if(user.getType().equals("学生")){
 			return "redirect:stuProfile";
 		}else if(user.getType().equals("系统管理员")){
+			Cookie cookie = new Cookie("SidNum", user.getName());
+			res.addCookie(cookie);
 			return "redirect:supProfile";
 		}else if(user.getType().equals("宿舍管理员")){
 			
-			//鏍规嵁鍗″彿鏉ユ煡璇㈠鐢�
 //			AdminStu adminStu = adminSerImpl.getStudent(user.getName());
 //			System.out.println(adminStu);
 //			model.addObject("as", adminStu);
 //			model.setViewName("forward:adminProfile");
 //			return model;
-			
+			Cookie cookie = new Cookie("DidNum", user.getName());
+			res.addCookie(cookie);
 			return "redirect:adminProfile";
 		}else{
-			System.out.println("4"+user.getType());
+			//System.out.println("4"+user.getType());
 			return "/";
 		}
 	}

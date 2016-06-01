@@ -5,12 +5,20 @@ public class DorRepair {
 	public DorRepair() {
 		// TODO Auto-generated constructor stub
 	}
+	private int id;
 	private String number;
 	private String name;
 	private String phone;
 	private String type;
 	private String date;
 	private String comment;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNumber() {
 		return number;
 	}

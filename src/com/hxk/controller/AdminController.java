@@ -24,6 +24,7 @@ import com.hxk.model.AdminDor;
 import com.hxk.model.AdminForm;
 import com.hxk.model.AdminStu;
 import com.hxk.model.DorRepair;
+import com.hxk.model.Event;
 import com.hxk.model.Filters;
 import com.hxk.model.Sanitation;
 import com.hxk.model.TitleUrl;
@@ -104,7 +105,7 @@ public class AdminController {
 		if(null != cookies){
 			for(int i = 0; i < cookies.length; i++){
 				Cookie cookie = cookies[i];
-				if(cookie.getName().equals("idNum")){
+				if(cookie.getName().equals("DidNum")){
 					idNum = cookie.getValue();
 					admin = adminService.getAdmin(idNum);
 					//获取name存储到cookie中给其他页面来使用
@@ -278,8 +279,19 @@ public class AdminController {
 	public  List<AdminStu> showStuInfo(HttpServletRequest req){
 		String search = req.getParameter("_search");
 		if(search.equals("false")){
-			List<AdminStu> stu = adminService.getAllStudent();
-			return stu;
+			//List<AdminStu> stu = null;
+			String sidx = req.getParameter("sidx");
+			String sord = req.getParameter("sord");
+			if(sidx.equals("")){
+				 return adminService.getAllStudent();
+			}else{
+				Map<String,String> map = new HashMap<String,String>();
+				map.put("sidx", sidx);
+				map.put("sord", sord);
+				List<AdminStu> stu = adminService.getStudentBySidx(map);
+				System.out.println(stu);
+				return stu;
+			}
 		}else if(search.equals("true")){
 			System.out.println(req.getParameter("filters"));
 			String filters = req.getParameter("filters");
@@ -345,7 +357,7 @@ public class AdminController {
 	
 	//学生文件上传
 	@RequestMapping(value = "/importAdminStu", method = RequestMethod.POST)
-	public String importAdminStuInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
+	public String importAdminStuInfo(@RequestParam("file") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		/*String temp = request.getSession().getServletContext()
 				.getRealPath(File.separator)
 				+ "temp"; // 临时目录
@@ -413,7 +425,7 @@ public class AdminController {
 	
 	//宿舍文件上传、
 	@RequestMapping(value = "/importAdminDor", method = RequestMethod.POST)
-	public String importAdminDorInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
+	public String importAdminDorInfo(@RequestParam("file") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		if (file == null){
 			System.out.println("file");
 			return "";
@@ -429,7 +441,7 @@ public class AdminController {
 	
 	//卫生文件上传、
 	@RequestMapping(value = "/importAdminSan", method = RequestMethod.POST)
-	public String importAdminSanInfo(@RequestParam("filename") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
+	public String importAdminSanInfo(@RequestParam("file") MultipartFile file,HttpServletRequest request,HttpServletResponse response) throws Exception {
 		if (file == null){
 			System.out.println("file");
 			return "";
@@ -452,9 +464,7 @@ public class AdminController {
 		
 		MultipartFile avatar = adminForm.getAvatar();
 		InputStream is = avatar.getInputStream();  
-		
 //	    byte[] avatarData1 = new byte[(int) avatar.getSize()];  
-//	    
 //	    is.read(avatarData1);
 		byte[] avatarData = FileCopyUtils.copyToByteArray(is);
 	    if(avatarData == null){
@@ -464,7 +474,7 @@ public class AdminController {
 	    param.put("FILE", avatarData);//此处所用的参数类型为 byte[]
 	    adminService.saveAvatar(param);
 	    
-		return "adminProfile";
+		return "redirect:adminProfile";
 	}
 	
 	
@@ -478,7 +488,7 @@ public class AdminController {
 		System.out.println(adminStu);
 		System.out.println(oper);
 		if(oper.equals("del")){
-			String id = adminStu.getId();
+			int id = adminStu.getId();
 			adminService.deleteStudent(id);
 			return "adminStuInfoGL";
 		}else if(oper.equals("add")){
@@ -516,4 +526,22 @@ public class AdminController {
 		return "adminStuInfoGL";
 	}	*/
 	//======================================================
+	
+	
+	
+	
+	//获取活动
+	@ResponseBody
+	@RequestMapping(value="/info/findEvent")
+	public List<Event> findEvent(){
+		return adminService.findAllEvent();
+	}
+	
+	//插入活动
+	@RequestMapping(value="/insertCalendar")
+	public void insertEvent(Event event){
+		System.out.println(event);
+		adminService.addEvent(event);
+		//return "forward:adminCalendar";
+	}
 }
